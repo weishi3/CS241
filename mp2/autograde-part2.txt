@@ -1,4 +1,0 @@
-MP2 Part2
-Part 1 is worth 2 points and Part 2 is worth 6 points. You get all 6 points if all the tester from 1 to 9 run and % is < 200. -0.5 for every 50% increase there after
-If any tester fails, we grade out of 2 points. You lose 0.2 point for each failed tester.
-Score for part2: 1.8 /6.0
