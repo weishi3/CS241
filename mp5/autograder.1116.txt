@@ -1,0 +1,226 @@
+== CS 241 Autograder Note: ==
+This autograder is a preliminary assessment of your program's correctness. Your
+grade may change UP OR DOWN based on the CORRECTNESS OF YOUR PROGRAM. We make every effort to ensure
+that our autograder is 'smart' enough to not count off for simple things like grammar but, in doing so,
+we may inadvertently allow for incorrect code to be counted as correct. If we have to change our script
+to better reflect the CORRECTNESS OF YOUR PROGRAM, we will run the script on EVERY PROGRAM and update
+EVERY AUTOGRADER OUTPUT to ensure fairness to all students. Thanks for understanding! - CS 241 Staff
+
+(Please note, this autograder does not reflect a late submission penalty. This will be applied on Compass.)
+
+
+=== MP5 Autograder Summary ===
+Program Execution Score (90% weight): 31.0/31.0 (100.0%)
+Program Heap Freed (5% weight): PASSED (100%)
+Correct Memory Usage (5% weight): PASSED (100%)
+
+
+=== MP5 Scoring Breakdown ===
+--- Details for "MP5" ---
+Total "MP5" Sub-Score: 31.0
+	... Details for "MP5", "test1 (given as part of assignment) /2 points"...
+	Total "MP5", "test1 (given as part of assignment) /2 points" Sub-Score: 2.0
+		test1
+	... Details for "MP5", "test3 (given as part of assignment) /8 points"...
+	Total "MP5", "test3 (given as part of assignment) /8 points" Sub-Score: 8.0
+		test3
+	... Details for "MP5", "test4 (given as part of assignment) /8 points"...
+	Total "MP5", "test4 (given as part of assignment) /8 points" Sub-Score: 8.0
+		test4
+	... Details for "MP5", "test6x (a better test5, testing that map_all() does not block) /5 points"...
+	Total "MP5", "test6x (a better test5, testing that map_all() does not block) /5 points" Sub-Score: 5.0
+		test6x
+	... Details for "MP5", "test7x (do you only use one thread?) /4 points"...
+	Total "MP5", "test7x (do you only use one thread?) /4 points" Sub-Score: 4.0
+		test7x
+	... Details for "MP5", "test6 (your map() and reduce() functions) /4 points"...
+	Total "MP5", "test6 (your map() and reduce() functions) /4 points" Sub-Score: 4.0
+		test6
+
+
+
+
+=== MP5 Raw Autograder Log ===
+[config]: Initializing the AssignmentGrader class "mp5"...
+[config]: Initializing the SegmentGrader class "mp5_1". Loading...
+[config]: Assignment initalization complete!
+[info]: The submission in "/srv/local/cs241grader/release/fa14-qi/fa14-cs241/weishi3" for assignment "mp5" is ready to be graded. Running grading tasks...
+[info]: Beginning to grade assignment "MP5"...
+[fine]: Launching assignment-specific code for "MP5", "MP5"...
+[finer]: Running command [make] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: gcc -c -g -W -Wall -I. -Ilibds/ libds/libds.c -o libds.o -lpthread
+[finest]: [stdout:2]: gcc -c -g -W -Wall -I. -Ilibds/ libmapreduce.c -o libmapreduce.o -lpthread
+[finest]: [stdout:3]: gcc -g -W -Wall libds.o libmapreduce.o test1.c -o test1 -lpthread
+[finest]: [stdout:4]: gcc -g -W -Wall libds.o libmapreduce.o test2.c -o test2 -lpthread
+[finest]: [stdout:5]: gcc -g -W -Wall libds.o libmapreduce.o test3.c -o test3 -lpthread
+[finest]: [stdout:6]: gcc -g -W -Wall test4.c libds.o libmapreduce.o -o test4 -lpthread
+[finest]: [stdout:7]: gcc -g -W -Wall libds.o libmapreduce.o test5.c -o test5 -lpthread
+[finest]: [stdout:8]: gcc -g -W -Wall libds.o libmapreduce.o test6x.c -o test6x -lpthread
+[finest]: [stdout:9]: gcc -g -W -Wall libds.o libmapreduce.o test7x.c -o test7x -lpthread
+[finest]: [stdout:10]: gcc -g -W -Wall libds.o libmapreduce.o test6.c -o test6 -lpthread
+[finest]: [stderr:1]: libmapreduce.c: In function 'process_key_value':
+[finest]: [stderr:2]: libmapreduce.c:51: warning: passing argument 1 of 'free' discards qualifiers from pointer target type
+[finest]: [stderr:3]: /usr/include/stdlib.h:488: note: expected 'void *' but argument is of type 'const char *'
+[finest]: [stderr:4]: libmapreduce.c:52: warning: passing argument 1 of 'free' discards qualifiers from pointer target type
+[finest]: [stderr:5]: /usr/include/stdlib.h:488: note: expected 'void *' but argument is of type 'const char *'
+[finest]: [stderr:6]: libmapreduce.c:56: warning: passing argument 1 of 'free' discards qualifiers from pointer target type
+[finest]: [stderr:7]: /usr/include/stdlib.h:488: note: expected 'void *' but argument is of type 'const char *'
+[finest]: [stderr:8]: libmapreduce.c:57: warning: passing argument 1 of 'free' discards qualifiers from pointer target type
+[finest]: [stderr:9]: /usr/include/stdlib.h:488: note: expected 'void *' but argument is of type 'const char *'
+[finest]: [stderr:10]: libmapreduce.c: In function 'work':
+[finest]: [stderr:11]: libmapreduce.c:203: warning: control reaches end of non-void function
+[finest]: [stderr:12]: test7x.c: In function 'map':
+[finest]: [stderr:13]: test7x.c:10: warning: unused parameter 'data'
+[fine]: Launching segment-specific code for "MP5", "MP5", "MP5"...
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test1 (given as part of assignment) /2 points"...
+[finer]: Running command [mp5-autograde/test1] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test1" with exit code = 0.
+[finest]: [stdout:1]: letters: 8
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test3 (given as part of assignment) /8 points"...
+[finer]: Running command [mp5-autograde/test3] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test3" with exit code = 0.
+[finest]: [stdout:1]: a: 10
+[finest]: [stdout:2]: b: 2
+[finest]: [stdout:3]: c: 2
+[finest]: [stdout:4]: d: 12
+[finest]: [stdout:5]: e: 10
+[finest]: [stdout:6]: f: 1
+[finest]: [stdout:7]: g: 2
+[finest]: [stdout:8]: h: 1
+[finest]: [stdout:9]: i: 5
+[finest]: [stdout:10]: j: 0
+[finest]: [stdout:11]: k: 1
+[finest]: [stdout:12]: l: 8
+[finest]: [stdout:13]: m: 0
+[finest]: [stdout:14]: n: 9
+[finest]: [stdout:15]: o: 18
+[finest]: [stdout:16]: p: 0
+[finest]: [stdout:17]: q: 0
+[finest]: [stdout:18]: r: 8
+[finest]: [stdout:19]: s: 5
+[finest]: [stdout:20]: t: 6
+[finest]: [stdout:21]: u: 2
+[finest]: [stdout:22]: v: 3
+[finest]: [stdout:23]: w: 4
+[finest]: [stdout:24]: x: 0
+[finest]: [stdout:25]: y: 2
+[finest]: [stdout:26]: z: 0
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test4 (given as part of assignment) /8 points"...
+[finer]: Running command [mp5-autograde/test4] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test4" with exit code = 0.
+[finest]: [stdout:1]: the: 1804
+[finest]: [stdout:2]: and: 912
+[finest]: [stdout:3]: alice: 385
+[finest]: [stdout:4]: some-word-that-wont-exist: (null)
+[finer]: Testing for string "the: 1804" in process output.
+[finer]: String found in line 1 of standard output.
+[finer]: Testing for string "and: 912" in process output.
+[finer]: String found in line 2 of standard output.
+[finer]: Testing for string "alice: 385" in process output.
+[finer]: String found in line 3 of standard output.
+[finer]: Testing for string "some-word-that-wont-exist: (null)" in process output.
+[finer]: String found in line 4 of standard output.
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test6x (a better test5, testing that map_all() does not block) /5 points"...
+[finer]: Running command [mp5-autograde/test6x] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test6x" with exit code = 0.
+[finest]: [stdout:1]: Sleeping for 2 seconds...
+[finest]: [stdout:2]: Sleeping for 4 seconds...
+[finest]: [stdout:3]: Sleeping for 6 seconds...
+[finest]: [stdout:4]: Sleeping for 8 seconds...
+[finest]: [stdout:5]: value: (null)
+[finest]: [stdout:6]: value: (null)
+[finest]: [stdout:7]: value: 1
+[finest]: [stdout:8]: value: 1
+[finest]: [stdout:9]: value: 2
+[finest]: [stdout:10]: value: 2
+[finest]: [stdout:11]: value: 3
+[finest]: [stdout:12]: value: 3
+[finest]: [stdout:13]: value: 4
+[finest]: [stdout:14]: value: 4
+[finer]: Testing for string "value: (null)" in process output.
+[finer]: String found in line 5 of standard output.
+[finer]: Testing for string "value: 4" in process output.
+[finer]: String found in line 13 of standard output.
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test7x (do you only use one thread?) /4 points"...
+[finer]: Running command [mp5-autograde/test7x] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test7x" with exit code = 0.
+[finest]: [stdout:1]: Thread ID: 28160
+[finest]: [stdout:2]: Thread ID: 28160
+[finest]: [stdout:3]: Thread ID: 28160
+[finest]: [stdout:4]: Thread ID: 28160
+[finest]: [stdout:5]: Thread ID: 28160
+[finest]: [stdout:6]: Thread ID: 28160
+[finest]: [stdout:7]: Thread ID: 28160
+[finest]: [stdout:8]: Thread ID: 28160
+[finest]: [stdout:9]: Thread ID: 28160
+[finest]: [stdout:10]: Thread ID: 28160
+[finest]: [stdout:11]: Thread ID: 28160
+[finest]: [stdout:12]: Thread ID: 28160
+[finest]: [stdout:13]: Thread ID: 28160
+[finest]: [stdout:14]: Thread ID: 28160
+[finest]: [stdout:15]: Thread ID: 28160
+[finest]: [stdout:16]: Thread ID: 28160
+[finest]: [stdout:17]: Thread ID: 28160
+[finest]: [stdout:18]: threadid: 28160
+[finer]: Testing for string "threadid: (null)" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "threadid: -1" in process output.
+[finer]: String was not found in process output.
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "test6 (your map() and reduce() functions) /4 points"...
+[finer]: Running command [mp5-autograde/test6] with a timeout of 40000ms.
+[finer]: Completed execution of "mp5-autograde/test6" with exit code = 0.
+[finest]: [stdout:1]: =============wonder==============
+[finest]: [stdout:2]: occurred to her that she ought to have wondered at this, but at the time
+[finest]: [stdout:3]: plenty of time as she went down to look about her and to wonder what was
+[finest]: [stdout:4]: Down, down, down. Would the fall NEVER come to an end! 'I wonder how
+[finest]: [stdout:5]: '--yes, that's about the right distance--but then I wonder what Latitude
+[finest]: [stdout:6]: Presently she began again. 'I wonder if I shall fall right THROUGH the
+[finest]: [stdout:7]: like a mouse, you know. But do cats eat bats, I wonder?' And here Alice
+[finest]: [stdout:8]: door, she walked sadly down the middle, wondering how she was ever to
+[finest]: [stdout:9]: Alice to herself, 'in my going out altogether, like a candle. I wonder
+[finest]: [stdout:10]: sight, they were getting so far off). 'Oh, my poor little feet, I wonder
+[finest]: [stdout:11]: I wonder if I've been changed in the night? Let me think: was I the
+[finest]: [stdout:12]: 'It IS a long tail, certainly,' said Alice, looking down with wonder at
+[finest]: [stdout:13]: cat in the world! Oh, my dear Dinah! I wonder if I shall ever see you
+[finest]: [stdout:14]: ferrets! Where CAN I have dropped them, I wonder?' Alice guessed in a
+[finest]: [stdout:15]: again, no wonder she felt unhappy.
+[finest]: [stdout:16]: yet--it's rather curious, you know, this sort of life! I do wonder what
+[finest]: [stdout:17]: cucumber-frames there must be!' thought Alice. 'I wonder what they'll do
+[finest]: [stdout:18]: wonder what they WILL do next! If they had any sense, they'd take the
+[finest]: [stdout:19]: to be done, I wonder?' As she said this, she came suddenly upon an open
+[finest]: [stdout:20]: For a minute or two she stood looking at the house, and wondering what
+[finest]: [stdout:21]:      How I wonder what you're at!"
+[finest]: [stdout:22]: wondering if anything would EVER happen in a natural way again.
+[finest]: [stdout:23]: what a wonderful dream it had been.
+[finest]: [stdout:24]: wonderful Adventures, till she too began dreaming after a fashion, and
+[finest]: [stdout:25]: wondering very much what would happen next.
+[finest]: [stdout:26]: fond of beheading people here; the great wonder is, that there's any one
+[finest]: [stdout:27]: She was looking about for some way of escape, and wondering whether she
+[finest]: [stdout:28]: 'I dare say you're wondering why I don't put my arm round your waist,'
+[finest]: [stdout:29]: in a wondering tone.
+[finest]: [stdout:30]: =============Wonder==============
+[finest]: [stdout:31]: Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll
+[finest]: [stdout:32]: Title: Alice's Adventures in Wonderland
+[finest]: [stdout:33]: Wonderland, though she knew she had but to open them again, and all
+[finest]: [stdout:34]: with the dream of Wonderland of long ago: and how she would feel with
+[finest]: [stdout:35]: End of Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll
+[finest]: [stdout:36]: =============WONDER==============
+[finest]: [stdout:37]: *** START OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN WONDERLAND ***
+[finest]: [stdout:38]: ALICE'S ADVENTURES IN WONDERLAND
+[finest]: [stdout:39]: *** END OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN WONDERLAND ***
+[finer]: Testing for string "wondering" in process output.
+[finer]: String found in line 8 of standard output.
+[finer]: Testing for string "wonderful" in process output.
+[finer]: String found in line 23 of standard output.
+[finer]: Testing for string "Wonderland" in process output.
+[finer]: String found in line 31 of standard output.
+[finer]: Testing for string "WONDERLAND" in process output.
+[finer]: String found in line 37 of standard output.
+[fine]: Launching memory grader code for "MP5"...
+[fine]: Launching memory grader code for "MP5"...
+[finer]: Running command [make clean] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: rm -f *.o *.d test1 test2 test3 test4 test5 test6 test6x test7x *~
+[fine]: The assignment-specific grade() method completed successfully.
+[info]: The submission in "/srv/local/cs241grader/release/fa14-qi/fa14-cs241/weishi3" for assignment "mp5" has finished grading. Running final tasks...

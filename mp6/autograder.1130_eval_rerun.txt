@@ -1,0 +1,2375 @@
+== CS 241 Autograder Note: ==
+This autograder is a preliminary assessment of your program's correctness. Your
+grade may change UP OR DOWN based on the CORRECTNESS OF YOUR PROGRAM. We make every effort to ensure
+that our autograder is 'smart' enough to not count off for simple things like grammar but, in doing so,
+we may inadvertently allow for incorrect code to be counted as correct. If we have to change our script
+to better reflect the CORRECTNESS OF YOUR PROGRAM, we will run the script on EVERY PROGRAM and update
+EVERY AUTOGRADER OUTPUT to ensure fairness to all students. Thanks for understanding! - CS 241 Staff
+
+(Please note, this autograder does not reflect a late submission penalty. This will be applied on Compass.)
+
+
+=== MP6 Autograder Summary ===
+Program Execution Score (90% weight): 22.0/30.0 (73.333336%)
+Program Heap Freed (5% weight): PASSED (100%)
+Correct Memory Usage (5% weight): PASSED (100%)
+
+
+=== MP6 Scoring Breakdown ===
+--- Details for "MP6" ---
+Total "MP6" Sub-Score: 22.0
+	... Details for "MP6", "ONE_WEARABLE_TEST.ww"...
+	Total "MP6", "ONE_WEARABLE_TEST.ww" Sub-Score: 5.0
+		Passed
+	... Details for "MP6", "TWO_WEARABLE_TEST.ww"...
+	Total "MP6", "TWO_WEARABLE_TEST.ww" Sub-Score: 4.0
+		Partially Passed
+	... Details for "MP6", "SYNCHRONIZED_TEST.ww"...
+	Total "MP6", "SYNCHRONIZED_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "TRICKY_TEST.ww"...
+	Total "MP6", "TRICKY_TEST.ww" Sub-Score: 4.0
+		Partially Passed
+	... Details for "MP6", "STRESS_TEST.ww"...
+	Total "MP6", "STRESS_TEST.ww" Sub-Score: 4.0
+		Partially Passed
+	... Details for "MP6", "SIGINT"...
+	Total "MP6", "SIGINT" Sub-Score: 5.0
+		Passed
+
+
+
+
+=== MP6 Raw Autograder Log ===
+[config]: Initializing the AssignmentGrader class "mp6"...
+[config]: Initializing the SegmentGrader class "mp6_1". Loading...
+[config]: Assignment initalization complete!
+[info]: The submission in "/srv/local/cs241grader/release/fa14-dr//weishi3" for assignment "mp6" is ready to be graded. Running grading tasks...
+[info]: Beginning to grade assignment "MP6"...
+[fine]: Launching assignment-specific code for "MP6", "MP6"...
+[finer]: Running command [make] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: gcc -o wearable.o wearable.c -c  -lpthread
+[finest]: [stdout:2]: gcc -o queue.o queue.c -c 
+[finest]: [stdout:3]: gcc wearable.o queue.o wearable_sim.c -g -O2 -W -Wall -lpthread -o wearable_sim
+[finest]: [stdout:4]: gcc wearable_server.c queue.o -g -O2 -W -Wall -lpthread -o wearable_server
+[finest]: [stderr:1]: wearable_sim.c: In function âalarm_wakeupâ:
+[finest]: [stderr:2]: wearable_sim.c:176: warning: unused parameter âiâ
+[finest]: [stderr:3]: wearable_server.c: In function âextract_keyâ:
+[finest]: [stderr:4]: wearable_server.c:110: warning: unknown conversion type character â:â in format
+[finest]: [stderr:5]: wearable_server.c: In function âuser_request_threadâ:
+[finest]: [stderr:6]: wearable_server.c:170: warning: unused variable âretâ
+[finest]: [stderr:7]: wearable_server.c:170: warning: unused variable âiâ
+[finest]: [stderr:8]: wearable_server.c: In function âsignal_receivedâ:
+[finest]: [stderr:9]: wearable_server.c:277: warning: unused parameter âsigâ
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[fine]: Launching segment-specific code for "MP6", "MP6", "MP6"...
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "ONE_WEARABLE_TEST.ww"...
+[finer]: Running command [./wearable_server 16753 29887] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 16753 29887 ONE_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[finest]: [stdout:1]: Receieved:Results for heart_beat:
+[finest]: [stdout:2]: Size:1
+[finest]: [stdout:3]: Median:100
+[finest]: [stdout:4]: Average:100
+[finest]: [stdout:5]: 
+[finest]: [stdout:6]: Results for blood_sugar:
+[finest]: [stdout:7]: Size:1
+[finest]: [stdout:8]: Median:104
+[finest]: [stdout:9]: Average:104
+[finest]: [stdout:10]: 
+[finest]: [stdout:11]: Results for body_temp:
+[finest]: [stdout:12]: Size:1
+[finest]: [stdout:13]: Median:104
+[finest]: [stdout:14]: Average:104
+[finest]: [stdout:15]: 
+[finest]: [stdout:16]: 
+[finest]: [stdout:17]: Results for heart_beat:
+[finest]: [stdout:18]: Size:1
+[finest]: [stdout:19]: 0 100
+[finest]: [stdout:20]: Median:100
+[finest]: [stdout:21]: Average:100
+[finest]: [stdout:22]: 
+[finest]: [stdout:23]: Results for blood_sugar:
+[finest]: [stdout:24]: Size:1
+[finest]: [stdout:25]: 0 104
+[finest]: [stdout:26]: Median:104
+[finest]: [stdout:27]: Average:104
+[finest]: [stdout:28]: 
+[finest]: [stdout:29]: Results for body_temp:
+[finest]: [stdout:30]: Size:1
+[finest]: [stdout:31]: 0 104
+[finest]: [stdout:32]: Median:104
+[finest]: [stdout:33]: Average:104
+[finest]: [stdout:34]: 
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [ls -s _error_report.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _error_report.rp
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 16753/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 29887/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "TWO_WEARABLE_TEST.ww"...
+[finer]: Running command [./wearable_server 18819 29216] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 18819 29216 TWO_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[finest]: [stdout:1]: Failed to deliver messages in time!
+[finest]: [stdout:2]: Receieved:Results for heart_beat:
+[finest]: [stdout:3]: Size:5
+[finest]: [stdout:4]: Median:100
+[finest]: [stdout:5]: Average:104
+[finest]: [stdout:6]: 
+[finest]: [stdout:7]: Results for blood_sugar:
+[finest]: [stdout:8]: Size:1
+[finest]: [stdout:9]: Median:104
+[finest]: [stdout:10]: Average:104
+[finest]: [stdout:11]: 
+[finest]: [stdout:12]: Results for body_temp:
+[finest]: [stdout:13]: Size:4
+[finest]: [stdout:14]: Median:111
+[finest]: [stdout:15]: Average:109
+[finest]: [stdout:16]: 
+[finest]: [stdout:17]: 
+[finest]: [stdout:18]: Receieved:Results for heart_beat:
+[finest]: [stdout:19]: Size:5
+[finest]: [stdout:20]: Median:100
+[finest]: [stdout:21]: Average:104
+[finest]: [stdout:22]: 
+[finest]: [stdout:23]: Results for blood_sugar:
+[finest]: [stdout:24]: Size:2
+[finest]: [stdout:25]: Median:104
+[finest]: [stdout:26]: Average:104
+[finest]: [stdout:27]: 
+[finest]: [stdout:28]: Results for body_temp:
+[finest]: [stdout:29]: Size:5
+[finest]: [stdout:30]: Median:111
+[finest]: [stdout:31]: Average:108
+[finest]: [stdout:32]: 
+[finest]: [stdout:33]: 
+[finest]: [stdout:34]: Results for heart_beat:
+[finest]: [stdout:35]: Size:5
+[finest]: [stdout:36]: 0 100
+[finest]: [stdout:37]: 1 100
+[finest]: [stdout:38]: 2 120
+[finest]: [stdout:39]: 3 100
+[finest]: [stdout:40]: 4 100
+[finest]: [stdout:41]: Median:100
+[finest]: [stdout:42]: Average:104
+[finest]: [stdout:43]: 
+[finest]: [stdout:44]: Results for blood_sugar:
+[finest]: [stdout:45]: Size:1
+[finest]: [stdout:46]: 0 104
+[finest]: [stdout:47]: Median:104
+[finest]: [stdout:48]: Average:104
+[finest]: [stdout:49]: 
+[finest]: [stdout:50]: Results for body_temp:
+[finest]: [stdout:51]: Size:4
+[finest]: [stdout:52]: 0 111
+[finest]: [stdout:53]: 1 111
+[finest]: [stdout:54]: 2 111
+[finest]: [stdout:55]: 3 104
+[finest]: [stdout:56]: Median:111
+[finest]: [stdout:57]: Average:109
+[finest]: [stdout:58]: 
+[finest]: [stdout:59]: Results for heart_beat:
+[finest]: [stdout:60]: Size:5
+[finest]: [stdout:61]: 0 100
+[finest]: [stdout:62]: 1 100
+[finest]: [stdout:63]: 2 120
+[finest]: [stdout:64]: 3 100
+[finest]: [stdout:65]: 4 100
+[finest]: [stdout:66]: Median:100
+[finest]: [stdout:67]: Average:104
+[finest]: [stdout:68]: 
+[finest]: [stdout:69]: Results for blood_sugar:
+[finest]: [stdout:70]: Size:2
+[finest]: [stdout:71]: 0 104
+[finest]: [stdout:72]: 1 104
+[finest]: [stdout:73]: Median:104
+[finest]: [stdout:74]: Average:104
+[finest]: [stdout:75]: 
+[finest]: [stdout:76]: Results for body_temp:
+[finest]: [stdout:77]: Size:5
+[finest]: [stdout:78]: 0 104
+[finest]: [stdout:79]: 1 111
+[finest]: [stdout:80]: 2 111
+[finest]: [stdout:81]: 3 111
+[finest]: [stdout:82]: 4 104
+[finest]: [stdout:83]: Median:111
+[finest]: [stdout:84]: Average:108
+[finest]: [stdout:85]: 
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [ls -s _error_report.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _error_report.rp
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 18819/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 29216/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "SYNCHRONIZED_TEST.ww"...
+[finer]: Running command [./wearable_server 24958 14238] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 24958 14238 SYNCHRONIZED_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[finest]: [stdout:1]: Receieved:Results for heart_beat:
+[finest]: [stdout:2]: Size:529
+[finest]: [stdout:3]: Median:104
+[finest]: [stdout:4]: Average:100
+[finest]: [stdout:5]: 
+[finest]: [stdout:6]: Results for blood_sugar:
+[finest]: [stdout:7]: Size:560
+[finest]: [stdout:8]: Median:96
+[finest]: [stdout:9]: Average:97
+[finest]: [stdout:10]: 
+[finest]: [stdout:11]: Results for body_temp:
+[finest]: [stdout:12]: Size:602
+[finest]: [stdout:13]: Median:104
+[finest]: [stdout:14]: Average:100
+[finest]: [stdout:15]: 
+[finest]: [stdout:16]: 
+[finest]: [stdout:17]: Results for heart_beat:
+[finest]: [stdout:18]: Size:555
+[finest]: [stdout:19]: 0 116
+[finest]: [stdout:20]: 1 72
+[finest]: [stdout:21]: 2 115
+[finest]: [stdout:22]: 3 104
+[finest]: [stdout:23]: 4 71
+[finest]: [stdout:24]: 5 119
+[finest]: [stdout:25]: 6 103
+[finest]: [stdout:26]: 7 92
+[finest]: [stdout:27]: 8 94
+[finest]: [stdout:28]: 9 104
+[finest]: [stdout:29]: 10 116
+[finest]: [stdout:30]: 11 117
+[finest]: [stdout:31]: 12 119
+[finest]: [stdout:32]: 13 85
+[finest]: [stdout:33]: 14 79
+[finest]: [stdout:34]: 15 96
+[finest]: [stdout:35]: 16 73
+[finest]: [stdout:36]: 17 130
+[finest]: [stdout:37]: 18 115
+[finest]: [stdout:38]: 19 93
+[finest]: [stdout:39]: 20 89
+[finest]: [stdout:40]: 21 123
+[finest]: [stdout:41]: 22 123
+[finest]: [stdout:42]: 23 87
+[finest]: [stdout:43]: 24 95
+[finest]: [stdout:44]: 25 87
+[finest]: [stdout:45]: 26 74
+[finest]: [stdout:46]: 27 114
+[finest]: [stdout:47]: 28 120
+[finest]: [stdout:48]: 29 83
+[finest]: [stdout:49]: 30 80
+[finest]: [stdout:50]: 31 93
+[finest]: [stdout:51]: 32 84
+[finest]: [stdout:52]: 33 103
+[finest]: [stdout:53]: 34 90
+[finest]: [stdout:54]: 35 75
+[finest]: [stdout:55]: 36 112
+[finest]: [stdout:56]: 37 109
+[finest]: [stdout:57]: 38 127
+[finest]: [stdout:58]: 39 129
+[finest]: [stdout:59]: 40 109
+[finest]: [stdout:60]: 41 110
+[finest]: [stdout:61]: 42 75
+[finest]: [stdout:62]: 43 77
+[finest]: [stdout:63]: 44 101
+[finest]: [stdout:64]: 45 125
+[finest]: [stdout:65]: 46 128
+[finest]: [stdout:66]: 47 87
+[finest]: [stdout:67]: 48 102
+[finest]: [stdout:68]: 49 122
+[finest]: [stdout:69]: 50 80
+[finest]: [stdout:70]: 51 116
+[finest]: [stdout:71]: 52 88
+[finest]: [stdout:72]: 53 76
+[finest]: [stdout:73]: 54 94
+[finest]: [stdout:74]: 55 119
+[finest]: [stdout:75]: 56 130
+[finest]: [stdout:76]: 57 101
+[finest]: [stdout:77]: 58 125
+[finest]: [stdout:78]: 59 103
+[finest]: [stdout:79]: 60 86
+[finest]: [stdout:80]: 61 119
+[finest]: [stdout:81]: 62 129
+[finest]: [stdout:82]: 63 127
+[finest]: [stdout:83]: 64 91
+[finest]: [stdout:84]: 65 104
+[finest]: [stdout:85]: 66 96
+[finest]: [stdout:86]: 67 113
+[finest]: [stdout:87]: 68 113
+[finest]: [stdout:88]: 69 109
+[finest]: [stdout:89]: 70 123
+[finest]: [stdout:90]: 71 117
+[finest]: [stdout:91]: 72 105
+[finest]: [stdout:92]: 73 111
+[finest]: [stdout:93]: 74 70
+[finest]: [stdout:94]: 75 98
+[finest]: [stdout:95]: 76 104
+[finest]: [stdout:96]: 77 108
+[finest]: [stdout:97]: 78 71
+[finest]: [stdout:98]: 79 120
+[finest]: [stdout:99]: 80 77
+[finest]: [stdout:100]: 81 124
+[finest]: [stdout:101]: 82 108
+[finest]: [stdout:102]: 83 87
+[finest]: [stdout:103]: 84 105
+[finest]: [stdout:104]: 85 70
+[finest]: [stdout:105]: 86 85
+[finest]: [stdout:106]: 87 70
+[finest]: [stdout:107]: 88 92
+[finest]: [stdout:108]: 89 119
+[finest]: [stdout:109]: 90 112
+[finest]: [stdout:110]: 91 86
+[finest]: [stdout:111]: 92 107
+[finest]: [stdout:112]: 93 86
+[finest]: [stdout:113]: 94 107
+[finest]: [stdout:114]: 95 86
+[finest]: [stdout:115]: 96 107
+[finest]: [stdout:116]: 97 86
+[finest]: [stdout:117]: 98 107
+[finest]: [stdout:118]: 99 86
+[finest]: [stdout:119]: 100 107
+[finest]: [stdout:120]: 101 86
+[finest]: [stdout:121]: 102 107
+[finest]: [stdout:122]: 103 86
+[finest]: [stdout:123]: 104 107
+[finest]: [stdout:124]: 105 86
+[finest]: [stdout:125]: 106 107
+[finest]: [stdout:126]: 107 93
+[finest]: [stdout:127]: 108 83
+[finest]: [stdout:128]: 109 111
+[finest]: [stdout:129]: 110 121
+[finest]: [stdout:130]: 111 120
+[finest]: [stdout:131]: 112 93
+[finest]: [stdout:132]: 113 106
+[finest]: [stdout:133]: 114 117
+[finest]: [stdout:134]: 115 115
+[finest]: [stdout:135]: 116 117
+[finest]: [stdout:136]: 117 128
+[finest]: [stdout:137]: 118 111
+[finest]: [stdout:138]: 119 108
+[finest]: [stdout:139]: 120 105
+[finest]: [stdout:140]: 121 126
+[finest]: [stdout:141]: 122 83
+[finest]: [stdout:142]: 123 125
+[finest]: [stdout:143]: 124 110
+[finest]: [stdout:144]: 125 113
+[finest]: [stdout:145]: 126 112
+[finest]: [stdout:146]: 127 104
+[finest]: [stdout:147]: 128 79
+[finest]: [stdout:148]: 129 73
+[finest]: [stdout:149]: 130 88
+[finest]: [stdout:150]: 131 86
+[finest]: [stdout:151]: 132 107
+[finest]: [stdout:152]: 133 93
+[finest]: [stdout:153]: 134 83
+[finest]: [stdout:154]: 135 111
+[finest]: [stdout:155]: 136 121
+[finest]: [stdout:156]: 137 120
+[finest]: [stdout:157]: 138 93
+[finest]: [stdout:158]: 139 106
+[finest]: [stdout:159]: 140 117
+[finest]: [stdout:160]: 141 115
+[finest]: [stdout:161]: 142 117
+[finest]: [stdout:162]: 143 128
+[finest]: [stdout:163]: 144 111
+[finest]: [stdout:164]: 145 108
+[finest]: [stdout:165]: 146 105
+[finest]: [stdout:166]: 147 126
+[finest]: [stdout:167]: 148 83
+[finest]: [stdout:168]: 149 125
+[finest]: [stdout:169]: 150 110
+[finest]: [stdout:170]: 151 113
+[finest]: [stdout:171]: 152 112
+[finest]: [stdout:172]: 153 104
+[finest]: [stdout:173]: 154 79
+[finest]: [stdout:174]: 155 73
+[finest]: [stdout:175]: 156 88
+[finest]: [stdout:176]: 157 86
+[finest]: [stdout:177]: 158 107
+[finest]: [stdout:178]: 159 93
+[finest]: [stdout:179]: 160 83
+[finest]: [stdout:180]: 161 111
+[finest]: [stdout:181]: 162 121
+[finest]: [stdout:182]: 163 120
+[finest]: [stdout:183]: 164 93
+[finest]: [stdout:184]: 165 106
+[finest]: [stdout:185]: 166 117
+[finest]: [stdout:186]: 167 115
+[finest]: [stdout:187]: 168 117
+[finest]: [stdout:188]: 169 128
+[finest]: [stdout:189]: 170 111
+[finest]: [stdout:190]: 171 108
+[finest]: [stdout:191]: 172 105
+[finest]: [stdout:192]: 173 126
+[finest]: [stdout:193]: 174 83
+[finest]: [stdout:194]: 175 125
+[finest]: [stdout:195]: 176 110
+[finest]: [stdout:196]: 177 113
+[finest]: [stdout:197]: 178 112
+[finest]: [stdout:198]: 179 104
+[finest]: [stdout:199]: 180 79
+[finest]: [stdout:200]: 181 73
+[finest]: [stdout:201]: 182 88
+[finest]: [stdout:202]: 183 86
+[finest]: [stdout:203]: 184 107
+[finest]: [stdout:204]: 185 93
+[finest]: [stdout:205]: 186 83
+[finest]: [stdout:206]: 187 111
+[finest]: [stdout:207]: 188 121
+[finest]: [stdout:208]: 189 120
+[finest]: [stdout:209]: 190 93
+[finest]: [stdout:210]: 191 106
+[finest]: [stdout:211]: 192 117
+[finest]: [stdout:212]: 193 115
+[finest]: [stdout:213]: 194 117
+[finest]: [stdout:214]: 195 128
+[finest]: [stdout:215]: 196 111
+[finest]: [stdout:216]: 197 108
+[finest]: [stdout:217]: 198 105
+[finest]: [stdout:218]: 199 126
+[finest]: [stdout:219]: 200 83
+[finest]: [stdout:220]: 201 125
+[finest]: [stdout:221]: 202 110
+[finest]: [stdout:222]: 203 113
+[finest]: [stdout:223]: 204 112
+[finest]: [stdout:224]: 205 104
+[finest]: [stdout:225]: 206 79
+[finest]: [stdout:226]: 207 73
+[finest]: [stdout:227]: 208 88
+[finest]: [stdout:228]: 209 86
+[finest]: [stdout:229]: 210 107
+[finest]: [stdout:230]: 211 93
+[finest]: [stdout:231]: 212 83
+[finest]: [stdout:232]: 213 111
+[finest]: [stdout:233]: 214 121
+[finest]: [stdout:234]: 215 120
+[finest]: [stdout:235]: 216 93
+[finest]: [stdout:236]: 217 106
+[finest]: [stdout:237]: 218 117
+[finest]: [stdout:238]: 219 115
+[finest]: [stdout:239]: 220 117
+[finest]: [stdout:240]: 221 128
+[finest]: [stdout:241]: 222 111
+[finest]: [stdout:242]: 223 108
+[finest]: [stdout:243]: 224 105
+[finest]: [stdout:244]: 225 126
+[finest]: [stdout:245]: 226 83
+[finest]: [stdout:246]: 227 125
+[finest]: [stdout:247]: 228 110
+[finest]: [stdout:248]: 229 113
+[finest]: [stdout:249]: 230 112
+[finest]: [stdout:250]: 231 104
+[finest]: [stdout:251]: 232 79
+[finest]: [stdout:252]: 233 73
+[finest]: [stdout:253]: 234 88
+[finest]: [stdout:254]: 235 86
+[finest]: [stdout:255]: 236 107
+[finest]: [stdout:256]: 237 93
+[finest]: [stdout:257]: 238 83
+[finest]: [stdout:258]: 239 111
+[finest]: [stdout:259]: 240 121
+[finest]: [stdout:260]: 241 120
+[finest]: [stdout:261]: 242 93
+[finest]: [stdout:262]: 243 106
+[finest]: [stdout:263]: 244 117
+[finest]: [stdout:264]: 245 115
+[finest]: [stdout:265]: 246 117
+[finest]: [stdout:266]: 247 128
+[finest]: [stdout:267]: 248 111
+[finest]: [stdout:268]: 249 108
+[finest]: [stdout:269]: 250 105
+[finest]: [stdout:270]: 251 126
+[finest]: [stdout:271]: 252 83
+[finest]: [stdout:272]: 253 125
+[finest]: [stdout:273]: 254 110
+[finest]: [stdout:274]: 255 113
+[finest]: [stdout:275]: 256 112
+[finest]: [stdout:276]: 257 104
+[finest]: [stdout:277]: 258 79
+[finest]: [stdout:278]: 259 73
+[finest]: [stdout:279]: 260 88
+[finest]: [stdout:280]: 261 86
+[finest]: [stdout:281]: 262 107
+[finest]: [stdout:282]: 263 93
+[finest]: [stdout:283]: 264 83
+[finest]: [stdout:284]: 265 111
+[finest]: [stdout:285]: 266 121
+[finest]: [stdout:286]: 267 120
+[finest]: [stdout:287]: 268 93
+[finest]: [stdout:288]: 269 106
+[finest]: [stdout:289]: 270 117
+[finest]: [stdout:290]: 271 115
+[finest]: [stdout:291]: 272 117
+[finest]: [stdout:292]: 273 128
+[finest]: [stdout:293]: 274 111
+[finest]: [stdout:294]: 275 108
+[finest]: [stdout:295]: 276 105
+[finest]: [stdout:296]: 277 126
+[finest]: [stdout:297]: 278 83
+[finest]: [stdout:298]: 279 125
+[finest]: [stdout:299]: 280 110
+[finest]: [stdout:300]: 281 113
+[finest]: [stdout:301]: 282 112
+[finest]: [stdout:302]: 283 104
+[finest]: [stdout:303]: 284 79
+[finest]: [stdout:304]: 285 73
+[finest]: [stdout:305]: 286 88
+[finest]: [stdout:306]: 287 129
+[finest]: [stdout:307]: 288 79
+[finest]: [stdout:308]: 289 99
+[finest]: [stdout:309]: 290 83
+[finest]: [stdout:310]: 291 75
+[finest]: [stdout:311]: 292 87
+[finest]: [stdout:312]: 293 119
+[finest]: [stdout:313]: 294 114
+[finest]: [stdout:314]: 295 83
+[finest]: [stdout:315]: 296 75
+[finest]: [stdout:316]: 297 99
+[finest]: [stdout:317]: 298 113
+[finest]: [stdout:318]: 299 113
+[finest]: [stdout:319]: 300 89
+[finest]: [stdout:320]: 301 70
+[finest]: [stdout:321]: 302 90
+[finest]: [stdout:322]: 303 77
+[finest]: [stdout:323]: 304 83
+[finest]: [stdout:324]: 305 92
+[finest]: [stdout:325]: 306 90
+[finest]: [stdout:326]: 307 89
+[finest]: [stdout:327]: 308 123
+[finest]: [stdout:328]: 309 120
+[finest]: [stdout:329]: 310 87
+[finest]: [stdout:330]: 311 113
+[finest]: [stdout:331]: 312 104
+[finest]: [stdout:332]: 313 125
+[finest]: [stdout:333]: 314 126
+[finest]: [stdout:334]: 315 80
+[finest]: [stdout:335]: 316 127
+[finest]: [stdout:336]: 317 85
+[finest]: [stdout:337]: 318 129
+[finest]: [stdout:338]: 319 90
+[finest]: [stdout:339]: 320 122
+[finest]: [stdout:340]: 321 86
+[finest]: [stdout:341]: 322 121
+[finest]: [stdout:342]: 323 89
+[finest]: [stdout:343]: 324 73
+[finest]: [stdout:344]: 325 105
+[finest]: [stdout:345]: 326 79
+[finest]: [stdout:346]: 327 99
+[finest]: [stdout:347]: 328 83
+[finest]: [stdout:348]: 329 75
+[finest]: [stdout:349]: 330 87
+[finest]: [stdout:350]: 331 119
+[finest]: [stdout:351]: 332 114
+[finest]: [stdout:352]: 333 83
+[finest]: [stdout:353]: 334 75
+[finest]: [stdout:354]: 335 99
+[finest]: [stdout:355]: 336 113
+[finest]: [stdout:356]: 337 113
+[finest]: [stdout:357]: 338 89
+[finest]: [stdout:358]: 339 70
+[finest]: [stdout:359]: 340 90
+[finest]: [stdout:360]: 341 77
+[finest]: [stdout:361]: 342 83
+[finest]: [stdout:362]: 343 92
+[finest]: [stdout:363]: 344 90
+[finest]: [stdout:364]: 345 89
+[finest]: [stdout:365]: 346 123
+[finest]: [stdout:366]: 347 120
+[finest]: [stdout:367]: 348 87
+[finest]: [stdout:368]: 349 113
+[finest]: [stdout:369]: 350 104
+[finest]: [stdout:370]: 351 125
+[finest]: [stdout:371]: 352 126
+[finest]: [stdout:372]: 353 80
+[finest]: [stdout:373]: 354 127
+[finest]: [stdout:374]: 355 85
+[finest]: [stdout:375]: 356 129
+[finest]: [stdout:376]: 357 90
+[finest]: [stdout:377]: 358 122
+[finest]: [stdout:378]: 359 86
+[finest]: [stdout:379]: 360 121
+[finest]: [stdout:380]: 361 89
+[finest]: [stdout:381]: 362 73
+[finest]: [stdout:382]: 363 105
+[finest]: [stdout:383]: 364 79
+[finest]: [stdout:384]: 365 99
+[finest]: [stdout:385]: 366 83
+[finest]: [stdout:386]: 367 75
+[finest]: [stdout:387]: 368 87
+[finest]: [stdout:388]: 369 119
+[finest]: [stdout:389]: 370 114
+[finest]: [stdout:390]: 371 83
+[finest]: [stdout:391]: 372 75
+[finest]: [stdout:392]: 373 99
+[finest]: [stdout:393]: 374 113
+[finest]: [stdout:394]: 375 113
+[finest]: [stdout:395]: 376 89
+[finest]: [stdout:396]: 377 70
+[finest]: [stdout:397]: 378 90
+[finest]: [stdout:398]: 379 77
+[finest]: [stdout:399]: 380 83
+[finest]: [stdout:400]: 381 92
+[finest]: [stdout:401]: 382 90
+[finest]: [stdout:402]: 383 89
+[finest]: [stdout:403]: 384 123
+[finest]: [stdout:404]: 385 120
+[finest]: [stdout:405]: 386 87
+[finest]: [stdout:406]: 387 113
+[finest]: [stdout:407]: 388 104
+[finest]: [stdout:408]: 389 125
+[finest]: [stdout:409]: 390 126
+[finest]: [stdout:410]: 391 80
+[finest]: [stdout:411]: 392 127
+[finest]: [stdout:412]: 393 85
+[finest]: [stdout:413]: 394 129
+[finest]: [stdout:414]: 395 90
+[finest]: [stdout:415]: 396 122
+[finest]: [stdout:416]: 397 86
+[finest]: [stdout:417]: 398 121
+[finest]: [stdout:418]: 399 89
+[finest]: [stdout:419]: 400 73
+[finest]: [stdout:420]: 401 105
+[finest]: [stdout:421]: 402 79
+[finest]: [stdout:422]: 403 99
+[finest]: [stdout:423]: 404 83
+[finest]: [stdout:424]: 405 75
+[finest]: [stdout:425]: 406 87
+[finest]: [stdout:426]: 407 119
+[finest]: [stdout:427]: 408 114
+[finest]: [stdout:428]: 409 83
+[finest]: [stdout:429]: 410 75
+[finest]: [stdout:430]: 411 99
+[finest]: [stdout:431]: 412 113
+[finest]: [stdout:432]: 413 113
+[finest]: [stdout:433]: 414 89
+[finest]: [stdout:434]: 415 70
+[finest]: [stdout:435]: 416 90
+[finest]: [stdout:436]: 417 77
+[finest]: [stdout:437]: 418 83
+[finest]: [stdout:438]: 419 92
+[finest]: [stdout:439]: 420 90
+[finest]: [stdout:440]: 421 89
+[finest]: [stdout:441]: 422 123
+[finest]: [stdout:442]: 423 120
+[finest]: [stdout:443]: 424 87
+[finest]: [stdout:444]: 425 113
+[finest]: [stdout:445]: 426 104
+[finest]: [stdout:446]: 427 125
+[finest]: [stdout:447]: 428 126
+[finest]: [stdout:448]: 429 80
+[finest]: [stdout:449]: 430 127
+[finest]: [stdout:450]: 431 85
+[finest]: [stdout:451]: 432 129
+[finest]: [stdout:452]: 433 90
+[finest]: [stdout:453]: 434 122
+[finest]: [stdout:454]: 435 86
+[finest]: [stdout:455]: 436 121
+[finest]: [stdout:456]: 437 89
+[finest]: [stdout:457]: 438 73
+[finest]: [stdout:458]: 439 105
+[finest]: [stdout:459]: 440 79
+[finest]: [stdout:460]: 441 99
+[finest]: [stdout:461]: 442 83
+[finest]: [stdout:462]: 443 75
+[finest]: [stdout:463]: 444 87
+[finest]: [stdout:464]: 445 119
+[finest]: [stdout:465]: 446 114
+[finest]: [stdout:466]: 447 83
+[finest]: [stdout:467]: 448 75
+[finest]: [stdout:468]: 449 99
+[finest]: [stdout:469]: 450 113
+[finest]: [stdout:470]: 451 113
+[finest]: [stdout:471]: 452 89
+[finest]: [stdout:472]: 453 70
+[finest]: [stdout:473]: 454 90
+[finest]: [stdout:474]: 455 77
+[finest]: [stdout:475]: 456 83
+[finest]: [stdout:476]: 457 92
+[finest]: [stdout:477]: 458 90
+[finest]: [stdout:478]: 459 89
+[finest]: [stdout:479]: 460 123
+[finest]: [stdout:480]: 461 120
+[finest]: [stdout:481]: 462 87
+[finest]: [stdout:482]: 463 113
+[finest]: [stdout:483]: 464 104
+[finest]: [stdout:484]: 465 125
+[finest]: [stdout:485]: 466 126
+[finest]: [stdout:486]: 467 80
+[finest]: [stdout:487]: 468 127
+[finest]: [stdout:488]: 469 85
+[finest]: [stdout:489]: 470 129
+[finest]: [stdout:490]: 471 90
+[finest]: [stdout:491]: 472 122
+[finest]: [stdout:492]: 473 86
+[finest]: [stdout:493]: 474 121
+[finest]: [stdout:494]: 475 89
+[finest]: [stdout:495]: 476 73
+[finest]: [stdout:496]: 477 105
+[finest]: [stdout:497]: 478 79
+[finest]: [stdout:498]: 479 99
+[finest]: [stdout:499]: 480 83
+[finest]: [stdout:500]: 481 75
+[finest]: [stdout:501]: 482 87
+[finest]: [stdout:502]: 483 119
+[finest]: [stdout:503]: 484 114
+[finest]: [stdout:504]: 485 83
+[finest]: [stdout:505]: 486 75
+[finest]: [stdout:506]: 487 99
+[finest]: [stdout:507]: 488 113
+[finest]: [stdout:508]: 489 113
+[finest]: [stdout:509]: 490 89
+[finest]: [stdout:510]: 491 70
+[finest]: [stdout:511]: 492 90
+[finest]: [stdout:512]: 493 77
+[finest]: [stdout:513]: 494 83
+[finest]: [stdout:514]: 495 92
+[finest]: [stdout:515]: 496 90
+[finest]: [stdout:516]: 497 89
+[finest]: [stdout:517]: 498 123
+[finest]: [stdout:518]: 499 120
+[finest]: [stdout:519]: 500 87
+[finest]: [stdout:520]: 501 113
+[finest]: [stdout:521]: 502 104
+[finest]: [stdout:522]: 503 125
+[finest]: [stdout:523]: 504 126
+[finest]: [stdout:524]: 505 80
+[finest]: [stdout:525]: 506 127
+[finest]: [stdout:526]: 507 85
+[finest]: [stdout:527]: 508 129
+[finest]: [stdout:528]: 509 90
+[finest]: [stdout:529]: 510 122
+[finest]: [stdout:530]: 511 86
+[finest]: [stdout:531]: 512 121
+[finest]: [stdout:532]: 513 89
+[finest]: [stdout:533]: 514 73
+[finest]: [stdout:534]: 515 105
+[finest]: [stdout:535]: 516 79
+[finest]: [stdout:536]: 517 99
+[finest]: [stdout:537]: 518 83
+[finest]: [stdout:538]: 519 75
+[finest]: [stdout:539]: 520 87
+[finest]: [stdout:540]: 521 119
+[finest]: [stdout:541]: 522 114
+[finest]: [stdout:542]: 523 83
+[finest]: [stdout:543]: 524 75
+[finest]: [stdout:544]: 525 99
+[finest]: [stdout:545]: 526 113
+[finest]: [stdout:546]: 527 113
+[finest]: [stdout:547]: 528 89
+[finest]: [stdout:548]: 529 70
+[finest]: [stdout:549]: 530 90
+[finest]: [stdout:550]: 531 77
+[finest]: [stdout:551]: 532 83
+[finest]: [stdout:552]: 533 92
+[finest]: [stdout:553]: 534 90
+[finest]: [stdout:554]: 535 89
+[finest]: [stdout:555]: 536 123
+[finest]: [stdout:556]: 537 120
+[finest]: [stdout:557]: 538 87
+[finest]: [stdout:558]: 539 113
+[finest]: [stdout:559]: 540 104
+[finest]: [stdout:560]: 541 125
+[finest]: [stdout:561]: 542 126
+[finest]: [stdout:562]: 543 80
+[finest]: [stdout:563]: 544 127
+[finest]: [stdout:564]: 545 85
+[finest]: [stdout:565]: 546 129
+[finest]: [stdout:566]: 547 90
+[finest]: [stdout:567]: 548 122
+[finest]: [stdout:568]: 549 86
+[finest]: [stdout:569]: 550 121
+[finest]: [stdout:570]: 551 89
+[finest]: [stdout:571]: 552 73
+[finest]: [stdout:572]: 553 105
+[finest]: [stdout:573]: 554 84
+[finest]: [stdout:574]: Median:104
+[finest]: [stdout:575]: Average:100
+[finest]: [stdout:576]: 
+[finest]: [stdout:577]: Results for blood_sugar:
+[finest]: [stdout:578]: Size:596
+[finest]: [stdout:579]: 0 114
+[finest]: [stdout:580]: 1 86
+[finest]: [stdout:581]: 2 105
+[finest]: [stdout:582]: 3 72
+[finest]: [stdout:583]: 4 78
+[finest]: [stdout:584]: 5 82
+[finest]: [stdout:585]: 6 106
+[finest]: [stdout:586]: 7 103
+[finest]: [stdout:587]: 8 116
+[finest]: [stdout:588]: 9 120
+[finest]: [stdout:589]: 10 83
+[finest]: [stdout:590]: 11 86
+[finest]: [stdout:591]: 12 108
+[finest]: [stdout:592]: 13 130
+[finest]: [stdout:593]: 14 104
+[finest]: [stdout:594]: 15 126
+[finest]: [stdout:595]: 16 121
+[finest]: [stdout:596]: 17 80
+[finest]: [stdout:597]: 18 103
+[finest]: [stdout:598]: 19 115
+[finest]: [stdout:599]: 20 130
+[finest]: [stdout:600]: 21 101
+[finest]: [stdout:601]: 22 123
+[finest]: [stdout:602]: 23 117
+[finest]: [stdout:603]: 24 122
+[finest]: [stdout:604]: 25 117
+[finest]: [stdout:605]: 26 97
+[finest]: [stdout:606]: 27 124
+[finest]: [stdout:607]: 28 118
+[finest]: [stdout:608]: 29 86
+[finest]: [stdout:609]: 30 114
+[finest]: [stdout:610]: 31 130
+[finest]: [stdout:611]: 32 71
+[finest]: [stdout:612]: 33 101
+[finest]: [stdout:613]: 34 80
+[finest]: [stdout:614]: 35 117
+[finest]: [stdout:615]: 36 95
+[finest]: [stdout:616]: 37 101
+[finest]: [stdout:617]: 38 71
+[finest]: [stdout:618]: 39 94
+[finest]: [stdout:619]: 40 103
+[finest]: [stdout:620]: 41 94
+[finest]: [stdout:621]: 42 77
+[finest]: [stdout:622]: 43 103
+[finest]: [stdout:623]: 44 70
+[finest]: [stdout:624]: 45 73
+[finest]: [stdout:625]: 46 76
+[finest]: [stdout:626]: 47 74
+[finest]: [stdout:627]: 48 107
+[finest]: [stdout:628]: 49 82
+[finest]: [stdout:629]: 50 126
+[finest]: [stdout:630]: 51 120
+[finest]: [stdout:631]: 52 124
+[finest]: [stdout:632]: 53 124
+[finest]: [stdout:633]: 54 129
+[finest]: [stdout:634]: 55 125
+[finest]: [stdout:635]: 56 120
+[finest]: [stdout:636]: 57 88
+[finest]: [stdout:637]: 58 119
+[finest]: [stdout:638]: 59 103
+[finest]: [stdout:639]: 60 121
+[finest]: [stdout:640]: 61 100
+[finest]: [stdout:641]: 62 106
+[finest]: [stdout:642]: 63 92
+[finest]: [stdout:643]: 64 126
+[finest]: [stdout:644]: 65 70
+[finest]: [stdout:645]: 66 93
+[finest]: [stdout:646]: 67 105
+[finest]: [stdout:647]: 68 116
+[finest]: [stdout:648]: 69 99
+[finest]: [stdout:649]: 70 107
+[finest]: [stdout:650]: 71 129
+[finest]: [stdout:651]: 72 77
+[finest]: [stdout:652]: 73 78
+[finest]: [stdout:653]: 74 119
+[finest]: [stdout:654]: 75 106
+[finest]: [stdout:655]: 76 118
+[finest]: [stdout:656]: 77 76
+[finest]: [stdout:657]: 78 105
+[finest]: [stdout:658]: 79 109
+[finest]: [stdout:659]: 80 104
+[finest]: [stdout:660]: 81 98
+[finest]: [stdout:661]: 82 120
+[finest]: [stdout:662]: 83 71
+[finest]: [stdout:663]: 84 117
+[finest]: [stdout:664]: 85 79
+[finest]: [stdout:665]: 86 127
+[finest]: [stdout:666]: 87 120
+[finest]: [stdout:667]: 88 87
+[finest]: [stdout:668]: 89 75
+[finest]: [stdout:669]: 90 127
+[finest]: [stdout:670]: 91 79
+[finest]: [stdout:671]: 92 98
+[finest]: [stdout:672]: 93 98
+[finest]: [stdout:673]: 94 70
+[finest]: [stdout:674]: 95 108
+[finest]: [stdout:675]: 96 77
+[finest]: [stdout:676]: 97 75
+[finest]: [stdout:677]: 98 98
+[finest]: [stdout:678]: 99 70
+[finest]: [stdout:679]: 100 108
+[finest]: [stdout:680]: 101 77
+[finest]: [stdout:681]: 102 75
+[finest]: [stdout:682]: 103 98
+[finest]: [stdout:683]: 104 70
+[finest]: [stdout:684]: 105 108
+[finest]: [stdout:685]: 106 77
+[finest]: [stdout:686]: 107 75
+[finest]: [stdout:687]: 108 98
+[finest]: [stdout:688]: 109 70
+[finest]: [stdout:689]: 110 108
+[finest]: [stdout:690]: 111 77
+[finest]: [stdout:691]: 112 75
+[finest]: [stdout:692]: 113 98
+[finest]: [stdout:693]: 114 70
+[finest]: [stdout:694]: 115 108
+[finest]: [stdout:695]: 116 77
+[finest]: [stdout:696]: 117 75
+[finest]: [stdout:697]: 118 98
+[finest]: [stdout:698]: 119 70
+[finest]: [stdout:699]: 120 108
+[finest]: [stdout:700]: 121 77
+[finest]: [stdout:701]: 122 75
+[finest]: [stdout:702]: 123 98
+[finest]: [stdout:703]: 124 70
+[finest]: [stdout:704]: 125 108
+[finest]: [stdout:705]: 126 77
+[finest]: [stdout:706]: 127 75
+[finest]: [stdout:707]: 128 98
+[finest]: [stdout:708]: 129 70
+[finest]: [stdout:709]: 130 108
+[finest]: [stdout:710]: 131 77
+[finest]: [stdout:711]: 132 75
+[finest]: [stdout:712]: 133 89
+[finest]: [stdout:713]: 134 119
+[finest]: [stdout:714]: 135 96
+[finest]: [stdout:715]: 136 120
+[finest]: [stdout:716]: 137 121
+[finest]: [stdout:717]: 138 87
+[finest]: [stdout:718]: 139 92
+[finest]: [stdout:719]: 140 78
+[finest]: [stdout:720]: 141 85
+[finest]: [stdout:721]: 142 73
+[finest]: [stdout:722]: 143 81
+[finest]: [stdout:723]: 144 129
+[finest]: [stdout:724]: 145 110
+[finest]: [stdout:725]: 146 80
+[finest]: [stdout:726]: 147 113
+[finest]: [stdout:727]: 148 91
+[finest]: [stdout:728]: 149 72
+[finest]: [stdout:729]: 150 88
+[finest]: [stdout:730]: 151 77
+[finest]: [stdout:731]: 152 84
+[finest]: [stdout:732]: 153 104
+[finest]: [stdout:733]: 154 80
+[finest]: [stdout:734]: 155 79
+[finest]: [stdout:735]: 156 82
+[finest]: [stdout:736]: 157 127
+[finest]: [stdout:737]: 158 102
+[finest]: [stdout:738]: 159 70
+[finest]: [stdout:739]: 160 125
+[finest]: [stdout:740]: 161 102
+[finest]: [stdout:741]: 162 106
+[finest]: [stdout:742]: 163 129
+[finest]: [stdout:743]: 164 98
+[finest]: [stdout:744]: 165 70
+[finest]: [stdout:745]: 166 108
+[finest]: [stdout:746]: 167 77
+[finest]: [stdout:747]: 168 75
+[finest]: [stdout:748]: 169 89
+[finest]: [stdout:749]: 170 119
+[finest]: [stdout:750]: 171 96
+[finest]: [stdout:751]: 172 120
+[finest]: [stdout:752]: 173 121
+[finest]: [stdout:753]: 174 87
+[finest]: [stdout:754]: 175 92
+[finest]: [stdout:755]: 176 78
+[finest]: [stdout:756]: 177 85
+[finest]: [stdout:757]: 178 73
+[finest]: [stdout:758]: 179 81
+[finest]: [stdout:759]: 180 129
+[finest]: [stdout:760]: 181 110
+[finest]: [stdout:761]: 182 80
+[finest]: [stdout:762]: 183 113
+[finest]: [stdout:763]: 184 91
+[finest]: [stdout:764]: 185 72
+[finest]: [stdout:765]: 186 88
+[finest]: [stdout:766]: 187 77
+[finest]: [stdout:767]: 188 84
+[finest]: [stdout:768]: 189 104
+[finest]: [stdout:769]: 190 80
+[finest]: [stdout:770]: 191 79
+[finest]: [stdout:771]: 192 82
+[finest]: [stdout:772]: 193 127
+[finest]: [stdout:773]: 194 102
+[finest]: [stdout:774]: 195 70
+[finest]: [stdout:775]: 196 125
+[finest]: [stdout:776]: 197 102
+[finest]: [stdout:777]: 198 106
+[finest]: [stdout:778]: 199 129
+[finest]: [stdout:779]: 200 98
+[finest]: [stdout:780]: 201 70
+[finest]: [stdout:781]: 202 108
+[finest]: [stdout:782]: 203 77
+[finest]: [stdout:783]: 204 75
+[finest]: [stdout:784]: 205 89
+[finest]: [stdout:785]: 206 119
+[finest]: [stdout:786]: 207 96
+[finest]: [stdout:787]: 208 120
+[finest]: [stdout:788]: 209 121
+[finest]: [stdout:789]: 210 87
+[finest]: [stdout:790]: 211 92
+[finest]: [stdout:791]: 212 78
+[finest]: [stdout:792]: 213 85
+[finest]: [stdout:793]: 214 73
+[finest]: [stdout:794]: 215 81
+[finest]: [stdout:795]: 216 129
+[finest]: [stdout:796]: 217 110
+[finest]: [stdout:797]: 218 80
+[finest]: [stdout:798]: 219 113
+[finest]: [stdout:799]: 220 91
+[finest]: [stdout:800]: 221 72
+[finest]: [stdout:801]: 222 88
+[finest]: [stdout:802]: 223 77
+[finest]: [stdout:803]: 224 84
+[finest]: [stdout:804]: 225 104
+[finest]: [stdout:805]: 226 80
+[finest]: [stdout:806]: 227 79
+[finest]: [stdout:807]: 228 82
+[finest]: [stdout:808]: 229 127
+[finest]: [stdout:809]: 230 102
+[finest]: [stdout:810]: 231 70
+[finest]: [stdout:811]: 232 125
+[finest]: [stdout:812]: 233 102
+[finest]: [stdout:813]: 234 106
+[finest]: [stdout:814]: 235 129
+[finest]: [stdout:815]: 236 98
+[finest]: [stdout:816]: 237 70
+[finest]: [stdout:817]: 238 108
+[finest]: [stdout:818]: 239 77
+[finest]: [stdout:819]: 240 75
+[finest]: [stdout:820]: 241 89
+[finest]: [stdout:821]: 242 119
+[finest]: [stdout:822]: 243 96
+[finest]: [stdout:823]: 244 120
+[finest]: [stdout:824]: 245 121
+[finest]: [stdout:825]: 246 87
+[finest]: [stdout:826]: 247 92
+[finest]: [stdout:827]: 248 78
+[finest]: [stdout:828]: 249 85
+[finest]: [stdout:829]: 250 73
+[finest]: [stdout:830]: 251 81
+[finest]: [stdout:831]: 252 129
+[finest]: [stdout:832]: 253 110
+[finest]: [stdout:833]: 254 80
+[finest]: [stdout:834]: 255 113
+[finest]: [stdout:835]: 256 91
+[finest]: [stdout:836]: 257 72
+[finest]: [stdout:837]: 258 88
+[finest]: [stdout:838]: 259 77
+[finest]: [stdout:839]: 260 84
+[finest]: [stdout:840]: 261 104
+[finest]: [stdout:841]: 262 80
+[finest]: [stdout:842]: 263 79
+[finest]: [stdout:843]: 264 82
+[finest]: [stdout:844]: 265 127
+[finest]: [stdout:845]: 266 102
+[finest]: [stdout:846]: 267 70
+[finest]: [stdout:847]: 268 125
+[finest]: [stdout:848]: 269 102
+[finest]: [stdout:849]: 270 106
+[finest]: [stdout:850]: 271 129
+[finest]: [stdout:851]: 272 98
+[finest]: [stdout:852]: 273 70
+[finest]: [stdout:853]: 274 108
+[finest]: [stdout:854]: 275 77
+[finest]: [stdout:855]: 276 75
+[finest]: [stdout:856]: 277 89
+[finest]: [stdout:857]: 278 119
+[finest]: [stdout:858]: 279 96
+[finest]: [stdout:859]: 280 120
+[finest]: [stdout:860]: 281 121
+[finest]: [stdout:861]: 282 87
+[finest]: [stdout:862]: 283 92
+[finest]: [stdout:863]: 284 78
+[finest]: [stdout:864]: 285 85
+[finest]: [stdout:865]: 286 73
+[finest]: [stdout:866]: 287 81
+[finest]: [stdout:867]: 288 129
+[finest]: [stdout:868]: 289 110
+[finest]: [stdout:869]: 290 80
+[finest]: [stdout:870]: 291 113
+[finest]: [stdout:871]: 292 91
+[finest]: [stdout:872]: 293 72
+[finest]: [stdout:873]: 294 88
+[finest]: [stdout:874]: 295 77
+[finest]: [stdout:875]: 296 84
+[finest]: [stdout:876]: 297 104
+[finest]: [stdout:877]: 298 80
+[finest]: [stdout:878]: 299 79
+[finest]: [stdout:879]: 300 82
+[finest]: [stdout:880]: 301 127
+[finest]: [stdout:881]: 302 102
+[finest]: [stdout:882]: 303 70
+[finest]: [stdout:883]: 304 125
+[finest]: [stdout:884]: 305 102
+[finest]: [stdout:885]: 306 106
+[finest]: [stdout:886]: 307 129
+[finest]: [stdout:887]: 308 98
+[finest]: [stdout:888]: 309 70
+[finest]: [stdout:889]: 310 108
+[finest]: [stdout:890]: 311 77
+[finest]: [stdout:891]: 312 75
+[finest]: [stdout:892]: 313 89
+[finest]: [stdout:893]: 314 119
+[finest]: [stdout:894]: 315 96
+[finest]: [stdout:895]: 316 120
+[finest]: [stdout:896]: 317 121
+[finest]: [stdout:897]: 318 87
+[finest]: [stdout:898]: 319 92
+[finest]: [stdout:899]: 320 78
+[finest]: [stdout:900]: 321 85
+[finest]: [stdout:901]: 322 73
+[finest]: [stdout:902]: 323 81
+[finest]: [stdout:903]: 324 129
+[finest]: [stdout:904]: 325 110
+[finest]: [stdout:905]: 326 80
+[finest]: [stdout:906]: 327 113
+[finest]: [stdout:907]: 328 91
+[finest]: [stdout:908]: 329 72
+[finest]: [stdout:909]: 330 88
+[finest]: [stdout:910]: 331 77
+[finest]: [stdout:911]: 332 84
+[finest]: [stdout:912]: 333 104
+[finest]: [stdout:913]: 334 80
+[finest]: [stdout:914]: 335 79
+[finest]: [stdout:915]: 336 82
+[finest]: [stdout:916]: 337 127
+[finest]: [stdout:917]: 338 102
+[finest]: [stdout:918]: 339 70
+[finest]: [stdout:919]: 340 125
+[finest]: [stdout:920]: 341 102
+[finest]: [stdout:921]: 342 106
+[finest]: [stdout:922]: 343 129
+[finest]: [stdout:923]: 344 98
+[finest]: [stdout:924]: 345 70
+[finest]: [stdout:925]: 346 108
+[finest]: [stdout:926]: 347 77
+[finest]: [stdout:927]: 348 75
+[finest]: [stdout:928]: 349 89
+[finest]: [stdout:929]: 350 119
+[finest]: [stdout:930]: 351 96
+[finest]: [stdout:931]: 352 120
+[finest]: [stdout:932]: 353 121
+[finest]: [stdout:933]: 354 87
+[finest]: [stdout:934]: 355 92
+[finest]: [stdout:935]: 356 78
+[finest]: [stdout:936]: 357 85
+[finest]: [stdout:937]: 358 73
+[finest]: [stdout:938]: 359 81
+[finest]: [stdout:939]: 360 129
+[finest]: [stdout:940]: 361 110
+[finest]: [stdout:941]: 362 80
+[finest]: [stdout:942]: 363 113
+[finest]: [stdout:943]: 364 91
+[finest]: [stdout:944]: 365 72
+[finest]: [stdout:945]: 366 88
+[finest]: [stdout:946]: 367 77
+[finest]: [stdout:947]: 368 84
+[finest]: [stdout:948]: 369 104
+[finest]: [stdout:949]: 370 80
+[finest]: [stdout:950]: 371 79
+[finest]: [stdout:951]: 372 82
+[finest]: [stdout:952]: 373 127
+[finest]: [stdout:953]: 374 102
+[finest]: [stdout:954]: 375 70
+[finest]: [stdout:955]: 376 125
+[finest]: [stdout:956]: 377 102
+[finest]: [stdout:957]: 378 106
+[finest]: [stdout:958]: 379 129
+[finest]: [stdout:959]: 380 108
+[finest]: [stdout:960]: 381 103
+[finest]: [stdout:961]: 382 76
+[finest]: [stdout:962]: 383 127
+[finest]: [stdout:963]: 384 91
+[finest]: [stdout:964]: 385 92
+[finest]: [stdout:965]: 386 82
+[finest]: [stdout:966]: 387 121
+[finest]: [stdout:967]: 388 88
+[finest]: [stdout:968]: 389 112
+[finest]: [stdout:969]: 390 70
+[finest]: [stdout:970]: 391 110
+[finest]: [stdout:971]: 392 79
+[finest]: [stdout:972]: 393 110
+[finest]: [stdout:973]: 394 74
+[finest]: [stdout:974]: 395 124
+[finest]: [stdout:975]: 396 80
+[finest]: [stdout:976]: 397 79
+[finest]: [stdout:977]: 398 122
+[finest]: [stdout:978]: 399 75
+[finest]: [stdout:979]: 400 92
+[finest]: [stdout:980]: 401 125
+[finest]: [stdout:981]: 402 130
+[finest]: [stdout:982]: 403 114
+[finest]: [stdout:983]: 404 73
+[finest]: [stdout:984]: 405 91
+[finest]: [stdout:985]: 406 110
+[finest]: [stdout:986]: 407 74
+[finest]: [stdout:987]: 408 112
+[finest]: [stdout:988]: 409 96
+[finest]: [stdout:989]: 410 110
+[finest]: [stdout:990]: 411 90
+[finest]: [stdout:991]: 412 121
+[finest]: [stdout:992]: 413 93
+[finest]: [stdout:993]: 414 125
+[finest]: [stdout:994]: 415 112
+[finest]: [stdout:995]: 416 82
+[finest]: [stdout:996]: 417 121
+[finest]: [stdout:997]: 418 88
+[finest]: [stdout:998]: 419 112
+[finest]: [stdout:999]: 420 70
+[finest]: [stdout:1000]: 421 110
+[finest]: [stdout:1001]: 422 79
+[finest]: [stdout:1002]: 423 110
+[finest]: [stdout:1003]: 424 74
+[finest]: [stdout:1004]: 425 124
+[finest]: [stdout:1005]: 426 80
+[finest]: [stdout:1006]: 427 79
+[finest]: [stdout:1007]: 428 122
+[finest]: [stdout:1008]: 429 75
+[finest]: [stdout:1009]: 430 92
+[finest]: [stdout:1010]: 431 125
+[finest]: [stdout:1011]: 432 130
+[finest]: [stdout:1012]: 433 114
+[finest]: [stdout:1013]: 434 73
+[finest]: [stdout:1014]: 435 91
+[finest]: [stdout:1015]: 436 110
+[finest]: [stdout:1016]: 437 74
+[finest]: [stdout:1017]: 438 112
+[finest]: [stdout:1018]: 439 96
+[finest]: [stdout:1019]: 440 110
+[finest]: [stdout:1020]: 441 90
+[finest]: [stdout:1021]: 442 121
+[finest]: [stdout:1022]: 443 93
+[finest]: [stdout:1023]: 444 125
+[finest]: [stdout:1024]: 445 112
+[finest]: [stdout:1025]: 446 82
+[finest]: [stdout:1026]: 447 121
+[finest]: [stdout:1027]: 448 88
+[finest]: [stdout:1028]: 449 112
+[finest]: [stdout:1029]: 450 70
+[finest]: [stdout:1030]: 451 110
+[finest]: [stdout:1031]: 452 79
+[finest]: [stdout:1032]: 453 110
+[finest]: [stdout:1033]: 454 74
+[finest]: [stdout:1034]: 455 124
+[finest]: [stdout:1035]: 456 80
+[finest]: [stdout:1036]: 457 79
+[finest]: [stdout:1037]: 458 122
+[finest]: [stdout:1038]: 459 75
+[finest]: [stdout:1039]: 460 92
+[finest]: [stdout:1040]: 461 125
+[finest]: [stdout:1041]: 462 130
+[finest]: [stdout:1042]: 463 114
+[finest]: [stdout:1043]: 464 73
+[finest]: [stdout:1044]: 465 91
+[finest]: [stdout:1045]: 466 110
+[finest]: [stdout:1046]: 467 74
+[finest]: [stdout:1047]: 468 112
+[finest]: [stdout:1048]: 469 96
+[finest]: [stdout:1049]: 470 110
+[finest]: [stdout:1050]: 471 90
+[finest]: [stdout:1051]: 472 121
+[finest]: [stdout:1052]: 473 93
+[finest]: [stdout:1053]: 474 125
+[finest]: [stdout:1054]: 475 112
+[finest]: [stdout:1055]: 476 82
+[finest]: [stdout:1056]: 477 121
+[finest]: [stdout:1057]: 478 88
+[finest]: [stdout:1058]: 479 112
+[finest]: [stdout:1059]: 480 70
+[finest]: [stdout:1060]: 481 110
+[finest]: [stdout:1061]: 482 79
+[finest]: [stdout:1062]: 483 110
+[finest]: [stdout:1063]: 484 74
+[finest]: [stdout:1064]: 485 124
+[finest]: [stdout:1065]: 486 80
+[finest]: [stdout:1066]: 487 79
+[finest]: [stdout:1067]: 488 122
+[finest]: [stdout:1068]: 489 75
+[finest]: [stdout:1069]: 490 92
+[finest]: [stdout:1070]: 491 125
+[finest]: [stdout:1071]: 492 130
+[finest]: [stdout:1072]: 493 114
+[finest]: [stdout:1073]: 494 73
+[finest]: [stdout:1074]: 495 91
+[finest]: [stdout:1075]: 496 110
+[finest]: [stdout:1076]: 497 74
+[finest]: [stdout:1077]: 498 112
+[finest]: [stdout:1078]: 499 96
+[finest]: [stdout:1079]: 500 110
+[finest]: [stdout:1080]: 501 90
+[finest]: [stdout:1081]: 502 121
+[finest]: [stdout:1082]: 503 93
+[finest]: [stdout:1083]: 504 125
+[finest]: [stdout:1084]: 505 112
+[finest]: [stdout:1085]: 506 82
+[finest]: [stdout:1086]: 507 121
+[finest]: [stdout:1087]: 508 88
+[finest]: [stdout:1088]: 509 112
+[finest]: [stdout:1089]: 510 70
+[finest]: [stdout:1090]: 511 110
+[finest]: [stdout:1091]: 512 79
+[finest]: [stdout:1092]: 513 110
+[finest]: [stdout:1093]: 514 74
+[finest]: [stdout:1094]: 515 124
+[finest]: [stdout:1095]: 516 80
+[finest]: [stdout:1096]: 517 79
+[finest]: [stdout:1097]: 518 122
+[finest]: [stdout:1098]: 519 75
+[finest]: [stdout:1099]: 520 92
+[finest]: [stdout:1100]: 521 125
+[finest]: [stdout:1101]: 522 130
+[finest]: [stdout:1102]: 523 114
+[finest]: [stdout:1103]: 524 73
+[finest]: [stdout:1104]: 525 91
+[finest]: [stdout:1105]: 526 110
+[finest]: [stdout:1106]: 527 74
+[finest]: [stdout:1107]: 528 112
+[finest]: [stdout:1108]: 529 96
+[finest]: [stdout:1109]: 530 110
+[finest]: [stdout:1110]: 531 90
+[finest]: [stdout:1111]: 532 121
+[finest]: [stdout:1112]: 533 93
+[finest]: [stdout:1113]: 534 125
+[finest]: [stdout:1114]: 535 112
+[finest]: [stdout:1115]: 536 82
+[finest]: [stdout:1116]: 537 121
+[finest]: [stdout:1117]: 538 88
+[finest]: [stdout:1118]: 539 112
+[finest]: [stdout:1119]: 540 70
+[finest]: [stdout:1120]: 541 110
+[finest]: [stdout:1121]: 542 79
+[finest]: [stdout:1122]: 543 110
+[finest]: [stdout:1123]: 544 74
+[finest]: [stdout:1124]: 545 124
+[finest]: [stdout:1125]: 546 80
+[finest]: [stdout:1126]: 547 79
+[finest]: [stdout:1127]: 548 122
+[finest]: [stdout:1128]: 549 75
+[finest]: [stdout:1129]: 550 92
+[finest]: [stdout:1130]: 551 125
+[finest]: [stdout:1131]: 552 130
+[finest]: [stdout:1132]: 553 114
+[finest]: [stdout:1133]: 554 73
+[finest]: [stdout:1134]: 555 91
+[finest]: [stdout:1135]: 556 110
+[finest]: [stdout:1136]: 557 74
+[finest]: [stdout:1137]: 558 112
+[finest]: [stdout:1138]: 559 96
+[finest]: [stdout:1139]: 560 110
+[finest]: [stdout:1140]: 561 90
+[finest]: [stdout:1141]: 562 121
+[finest]: [stdout:1142]: 563 93
+[finest]: [stdout:1143]: 564 125
+[finest]: [stdout:1144]: 565 112
+[finest]: [stdout:1145]: 566 82
+[finest]: [stdout:1146]: 567 121
+[finest]: [stdout:1147]: 568 88
+[finest]: [stdout:1148]: 569 112
+[finest]: [stdout:1149]: 570 70
+[finest]: [stdout:1150]: 571 110
+[finest]: [stdout:1151]: 572 79
+[finest]: [stdout:1152]: 573 110
+[finest]: [stdout:1153]: 574 74
+[finest]: [stdout:1154]: 575 124
+[finest]: [stdout:1155]: 576 80
+[finest]: [stdout:1156]: 577 79
+[finest]: [stdout:1157]: 578 122
+[finest]: [stdout:1158]: 579 75
+[finest]: [stdout:1159]: 580 92
+[finest]: [stdout:1160]: 581 125
+[finest]: [stdout:1161]: 582 130
+[finest]: [stdout:1162]: 583 114
+[finest]: [stdout:1163]: 584 73
+[finest]: [stdout:1164]: 585 91
+[finest]: [stdout:1165]: 586 110
+[finest]: [stdout:1166]: 587 74
+[finest]: [stdout:1167]: 588 112
+[finest]: [stdout:1168]: 589 96
+[finest]: [stdout:1169]: 590 110
+[finest]: [stdout:1170]: 591 90
+[finest]: [stdout:1171]: 592 121
+[finest]: [stdout:1172]: 593 93
+[finest]: [stdout:1173]: 594 125
+[finest]: [stdout:1174]: 595 112
+[finest]: [stdout:1175]: Median:96
+[finest]: [stdout:1176]: Average:97
+[finest]: [stdout:1177]: 
+[finest]: [stdout:1178]: Results for body_temp:
+[finest]: [stdout:1179]: Size:640
+[finest]: [stdout:1180]: 0 91
+[finest]: [stdout:1181]: 1 91
+[finest]: [stdout:1182]: 2 109
+[finest]: [stdout:1183]: 3 112
+[finest]: [stdout:1184]: 4 107
+[finest]: [stdout:1185]: 5 129
+[finest]: [stdout:1186]: 6 85
+[finest]: [stdout:1187]: 7 97
+[finest]: [stdout:1188]: 8 113
+[finest]: [stdout:1189]: 9 126
+[finest]: [stdout:1190]: 10 73
+[finest]: [stdout:1191]: 11 125
+[finest]: [stdout:1192]: 12 72
+[finest]: [stdout:1193]: 13 110
+[finest]: [stdout:1194]: 14 87
+[finest]: [stdout:1195]: 15 103
+[finest]: [stdout:1196]: 16 122
+[finest]: [stdout:1197]: 17 115
+[finest]: [stdout:1198]: 18 116
+[finest]: [stdout:1199]: 19 109
+[finest]: [stdout:1200]: 20 70
+[finest]: [stdout:1201]: 21 82
+[finest]: [stdout:1202]: 22 118
+[finest]: [stdout:1203]: 23 129
+[finest]: [stdout:1204]: 24 73
+[finest]: [stdout:1205]: 25 126
+[finest]: [stdout:1206]: 26 91
+[finest]: [stdout:1207]: 27 103
+[finest]: [stdout:1208]: 28 114
+[finest]: [stdout:1209]: 29 103
+[finest]: [stdout:1210]: 30 95
+[finest]: [stdout:1211]: 31 108
+[finest]: [stdout:1212]: 32 130
+[finest]: [stdout:1213]: 33 83
+[finest]: [stdout:1214]: 34 122
+[finest]: [stdout:1215]: 35 73
+[finest]: [stdout:1216]: 36 120
+[finest]: [stdout:1217]: 37 71
+[finest]: [stdout:1218]: 38 74
+[finest]: [stdout:1219]: 39 123
+[finest]: [stdout:1220]: 40 71
+[finest]: [stdout:1221]: 41 76
+[finest]: [stdout:1222]: 42 120
+[finest]: [stdout:1223]: 43 107
+[finest]: [stdout:1224]: 44 128
+[finest]: [stdout:1225]: 45 108
+[finest]: [stdout:1226]: 46 76
+[finest]: [stdout:1227]: 47 111
+[finest]: [stdout:1228]: 48 72
+[finest]: [stdout:1229]: 49 113
+[finest]: [stdout:1230]: 50 129
+[finest]: [stdout:1231]: 51 94
+[finest]: [stdout:1232]: 52 97
+[finest]: [stdout:1233]: 53 84
+[finest]: [stdout:1234]: 54 87
+[finest]: [stdout:1235]: 55 84
+[finest]: [stdout:1236]: 56 114
+[finest]: [stdout:1237]: 57 113
+[finest]: [stdout:1238]: 58 89
+[finest]: [stdout:1239]: 59 73
+[finest]: [stdout:1240]: 60 79
+[finest]: [stdout:1241]: 61 116
+[finest]: [stdout:1242]: 62 76
+[finest]: [stdout:1243]: 63 116
+[finest]: [stdout:1244]: 64 103
+[finest]: [stdout:1245]: 65 105
+[finest]: [stdout:1246]: 66 106
+[finest]: [stdout:1247]: 67 117
+[finest]: [stdout:1248]: 68 122
+[finest]: [stdout:1249]: 69 101
+[finest]: [stdout:1250]: 70 80
+[finest]: [stdout:1251]: 71 113
+[finest]: [stdout:1252]: 72 109
+[finest]: [stdout:1253]: 73 96
+[finest]: [stdout:1254]: 74 129
+[finest]: [stdout:1255]: 75 103
+[finest]: [stdout:1256]: 76 106
+[finest]: [stdout:1257]: 77 86
+[finest]: [stdout:1258]: 78 122
+[finest]: [stdout:1259]: 79 99
+[finest]: [stdout:1260]: 80 98
+[finest]: [stdout:1261]: 81 101
+[finest]: [stdout:1262]: 82 73
+[finest]: [stdout:1263]: 83 87
+[finest]: [stdout:1264]: 84 120
+[finest]: [stdout:1265]: 85 91
+[finest]: [stdout:1266]: 86 107
+[finest]: [stdout:1267]: 87 85
+[finest]: [stdout:1268]: 88 126
+[finest]: [stdout:1269]: 89 96
+[finest]: [stdout:1270]: 90 112
+[finest]: [stdout:1271]: 91 101
+[finest]: [stdout:1272]: 92 83
+[finest]: [stdout:1273]: 93 101
+[finest]: [stdout:1274]: 94 79
+[finest]: [stdout:1275]: 95 99
+[finest]: [stdout:1276]: 96 124
+[finest]: [stdout:1277]: 97 109
+[finest]: [stdout:1278]: 98 96
+[finest]: [stdout:1279]: 99 94
+[finest]: [stdout:1280]: 100 87
+[finest]: [stdout:1281]: 101 74
+[finest]: [stdout:1282]: 102 118
+[finest]: [stdout:1283]: 103 95
+[finest]: [stdout:1284]: 104 102
+[finest]: [stdout:1285]: 105 129
+[finest]: [stdout:1286]: 106 76
+[finest]: [stdout:1287]: 107 105
+[finest]: [stdout:1288]: 108 105
+[finest]: [stdout:1289]: 109 109
+[finest]: [stdout:1290]: 110 71
+[finest]: [stdout:1291]: 111 129
+[finest]: [stdout:1292]: 112 76
+[finest]: [stdout:1293]: 113 105
+[finest]: [stdout:1294]: 114 105
+[finest]: [stdout:1295]: 115 109
+[finest]: [stdout:1296]: 116 71
+[finest]: [stdout:1297]: 117 129
+[finest]: [stdout:1298]: 118 76
+[finest]: [stdout:1299]: 119 105
+[finest]: [stdout:1300]: 120 105
+[finest]: [stdout:1301]: 121 109
+[finest]: [stdout:1302]: 122 71
+[finest]: [stdout:1303]: 123 129
+[finest]: [stdout:1304]: 124 76
+[finest]: [stdout:1305]: 125 105
+[finest]: [stdout:1306]: 126 105
+[finest]: [stdout:1307]: 127 109
+[finest]: [stdout:1308]: 128 71
+[finest]: [stdout:1309]: 129 129
+[finest]: [stdout:1310]: 130 76
+[finest]: [stdout:1311]: 131 105
+[finest]: [stdout:1312]: 132 105
+[finest]: [stdout:1313]: 133 109
+[finest]: [stdout:1314]: 134 71
+[finest]: [stdout:1315]: 135 129
+[finest]: [stdout:1316]: 136 76
+[finest]: [stdout:1317]: 137 105
+[finest]: [stdout:1318]: 138 105
+[finest]: [stdout:1319]: 139 109
+[finest]: [stdout:1320]: 140 71
+[finest]: [stdout:1321]: 141 129
+[finest]: [stdout:1322]: 142 76
+[finest]: [stdout:1323]: 143 105
+[finest]: [stdout:1324]: 144 105
+[finest]: [stdout:1325]: 145 109
+[finest]: [stdout:1326]: 146 71
+[finest]: [stdout:1327]: 147 129
+[finest]: [stdout:1328]: 148 76
+[finest]: [stdout:1329]: 149 105
+[finest]: [stdout:1330]: 150 105
+[finest]: [stdout:1331]: 151 109
+[finest]: [stdout:1332]: 152 71
+[finest]: [stdout:1333]: 153 121
+[finest]: [stdout:1334]: 154 79
+[finest]: [stdout:1335]: 155 79
+[finest]: [stdout:1336]: 156 84
+[finest]: [stdout:1337]: 157 109
+[finest]: [stdout:1338]: 158 84
+[finest]: [stdout:1339]: 159 128
+[finest]: [stdout:1340]: 160 72
+[finest]: [stdout:1341]: 161 121
+[finest]: [stdout:1342]: 162 110
+[finest]: [stdout:1343]: 163 124
+[finest]: [stdout:1344]: 164 74
+[finest]: [stdout:1345]: 165 128
+[finest]: [stdout:1346]: 166 100
+[finest]: [stdout:1347]: 167 72
+[finest]: [stdout:1348]: 168 119
+[finest]: [stdout:1349]: 169 94
+[finest]: [stdout:1350]: 170 100
+[finest]: [stdout:1351]: 171 88
+[finest]: [stdout:1352]: 172 86
+[finest]: [stdout:1353]: 173 93
+[finest]: [stdout:1354]: 174 88
+[finest]: [stdout:1355]: 175 112
+[finest]: [stdout:1356]: 176 87
+[finest]: [stdout:1357]: 177 104
+[finest]: [stdout:1358]: 178 106
+[finest]: [stdout:1359]: 179 108
+[finest]: [stdout:1360]: 180 86
+[finest]: [stdout:1361]: 181 114
+[finest]: [stdout:1362]: 182 107
+[finest]: [stdout:1363]: 183 123
+[finest]: [stdout:1364]: 184 104
+[finest]: [stdout:1365]: 185 129
+[finest]: [stdout:1366]: 186 76
+[finest]: [stdout:1367]: 187 105
+[finest]: [stdout:1368]: 188 105
+[finest]: [stdout:1369]: 189 109
+[finest]: [stdout:1370]: 190 71
+[finest]: [stdout:1371]: 191 121
+[finest]: [stdout:1372]: 192 79
+[finest]: [stdout:1373]: 193 79
+[finest]: [stdout:1374]: 194 84
+[finest]: [stdout:1375]: 195 109
+[finest]: [stdout:1376]: 196 84
+[finest]: [stdout:1377]: 197 128
+[finest]: [stdout:1378]: 198 72
+[finest]: [stdout:1379]: 199 121
+[finest]: [stdout:1380]: 200 110
+[finest]: [stdout:1381]: 201 124
+[finest]: [stdout:1382]: 202 74
+[finest]: [stdout:1383]: 203 128
+[finest]: [stdout:1384]: 204 100
+[finest]: [stdout:1385]: 205 72
+[finest]: [stdout:1386]: 206 119
+[finest]: [stdout:1387]: 207 94
+[finest]: [stdout:1388]: 208 100
+[finest]: [stdout:1389]: 209 88
+[finest]: [stdout:1390]: 210 86
+[finest]: [stdout:1391]: 211 93
+[finest]: [stdout:1392]: 212 88
+[finest]: [stdout:1393]: 213 112
+[finest]: [stdout:1394]: 214 87
+[finest]: [stdout:1395]: 215 104
+[finest]: [stdout:1396]: 216 106
+[finest]: [stdout:1397]: 217 108
+[finest]: [stdout:1398]: 218 86
+[finest]: [stdout:1399]: 219 114
+[finest]: [stdout:1400]: 220 107
+[finest]: [stdout:1401]: 221 123
+[finest]: [stdout:1402]: 222 104
+[finest]: [stdout:1403]: 223 129
+[finest]: [stdout:1404]: 224 76
+[finest]: [stdout:1405]: 225 105
+[finest]: [stdout:1406]: 226 105
+[finest]: [stdout:1407]: 227 109
+[finest]: [stdout:1408]: 228 71
+[finest]: [stdout:1409]: 229 121
+[finest]: [stdout:1410]: 230 79
+[finest]: [stdout:1411]: 231 79
+[finest]: [stdout:1412]: 232 84
+[finest]: [stdout:1413]: 233 109
+[finest]: [stdout:1414]: 234 84
+[finest]: [stdout:1415]: 235 128
+[finest]: [stdout:1416]: 236 72
+[finest]: [stdout:1417]: 237 121
+[finest]: [stdout:1418]: 238 110
+[finest]: [stdout:1419]: 239 124
+[finest]: [stdout:1420]: 240 74
+[finest]: [stdout:1421]: 241 128
+[finest]: [stdout:1422]: 242 100
+[finest]: [stdout:1423]: 243 72
+[finest]: [stdout:1424]: 244 119
+[finest]: [stdout:1425]: 245 94
+[finest]: [stdout:1426]: 246 100
+[finest]: [stdout:1427]: 247 88
+[finest]: [stdout:1428]: 248 86
+[finest]: [stdout:1429]: 249 93
+[finest]: [stdout:1430]: 250 88
+[finest]: [stdout:1431]: 251 112
+[finest]: [stdout:1432]: 252 87
+[finest]: [stdout:1433]: 253 104
+[finest]: [stdout:1434]: 254 106
+[finest]: [stdout:1435]: 255 108
+[finest]: [stdout:1436]: 256 86
+[finest]: [stdout:1437]: 257 114
+[finest]: [stdout:1438]: 258 107
+[finest]: [stdout:1439]: 259 123
+[finest]: [stdout:1440]: 260 104
+[finest]: [stdout:1441]: 261 129
+[finest]: [stdout:1442]: 262 76
+[finest]: [stdout:1443]: 263 105
+[finest]: [stdout:1444]: 264 105
+[finest]: [stdout:1445]: 265 109
+[finest]: [stdout:1446]: 266 71
+[finest]: [stdout:1447]: 267 121
+[finest]: [stdout:1448]: 268 79
+[finest]: [stdout:1449]: 269 79
+[finest]: [stdout:1450]: 270 84
+[finest]: [stdout:1451]: 271 109
+[finest]: [stdout:1452]: 272 84
+[finest]: [stdout:1453]: 273 128
+[finest]: [stdout:1454]: 274 72
+[finest]: [stdout:1455]: 275 121
+[finest]: [stdout:1456]: 276 110
+[finest]: [stdout:1457]: 277 124
+[finest]: [stdout:1458]: 278 74
+[finest]: [stdout:1459]: 279 128
+[finest]: [stdout:1460]: 280 100
+[finest]: [stdout:1461]: 281 72
+[finest]: [stdout:1462]: 282 119
+[finest]: [stdout:1463]: 283 94
+[finest]: [stdout:1464]: 284 100
+[finest]: [stdout:1465]: 285 88
+[finest]: [stdout:1466]: 286 86
+[finest]: [stdout:1467]: 287 93
+[finest]: [stdout:1468]: 288 88
+[finest]: [stdout:1469]: 289 112
+[finest]: [stdout:1470]: 290 87
+[finest]: [stdout:1471]: 291 104
+[finest]: [stdout:1472]: 292 106
+[finest]: [stdout:1473]: 293 108
+[finest]: [stdout:1474]: 294 86
+[finest]: [stdout:1475]: 295 114
+[finest]: [stdout:1476]: 296 107
+[finest]: [stdout:1477]: 297 123
+[finest]: [stdout:1478]: 298 104
+[finest]: [stdout:1479]: 299 129
+[finest]: [stdout:1480]: 300 76
+[finest]: [stdout:1481]: 301 105
+[finest]: [stdout:1482]: 302 105
+[finest]: [stdout:1483]: 303 109
+[finest]: [stdout:1484]: 304 71
+[finest]: [stdout:1485]: 305 121
+[finest]: [stdout:1486]: 306 79
+[finest]: [stdout:1487]: 307 79
+[finest]: [stdout:1488]: 308 84
+[finest]: [stdout:1489]: 309 109
+[finest]: [stdout:1490]: 310 84
+[finest]: [stdout:1491]: 311 128
+[finest]: [stdout:1492]: 312 72
+[finest]: [stdout:1493]: 313 121
+[finest]: [stdout:1494]: 314 110
+[finest]: [stdout:1495]: 315 124
+[finest]: [stdout:1496]: 316 74
+[finest]: [stdout:1497]: 317 128
+[finest]: [stdout:1498]: 318 100
+[finest]: [stdout:1499]: 319 72
+[finest]: [stdout:1500]: 320 119
+[finest]: [stdout:1501]: 321 94
+[finest]: [stdout:1502]: 322 100
+[finest]: [stdout:1503]: 323 88
+[finest]: [stdout:1504]: 324 86
+[finest]: [stdout:1505]: 325 93
+[finest]: [stdout:1506]: 326 88
+[finest]: [stdout:1507]: 327 112
+[finest]: [stdout:1508]: 328 87
+[finest]: [stdout:1509]: 329 104
+[finest]: [stdout:1510]: 330 106
+[finest]: [stdout:1511]: 331 108
+[finest]: [stdout:1512]: 332 86
+[finest]: [stdout:1513]: 333 114
+[finest]: [stdout:1514]: 334 107
+[finest]: [stdout:1515]: 335 123
+[finest]: [stdout:1516]: 336 104
+[finest]: [stdout:1517]: 337 129
+[finest]: [stdout:1518]: 338 76
+[finest]: [stdout:1519]: 339 105
+[finest]: [stdout:1520]: 340 105
+[finest]: [stdout:1521]: 341 109
+[finest]: [stdout:1522]: 342 71
+[finest]: [stdout:1523]: 343 121
+[finest]: [stdout:1524]: 344 79
+[finest]: [stdout:1525]: 345 79
+[finest]: [stdout:1526]: 346 84
+[finest]: [stdout:1527]: 347 109
+[finest]: [stdout:1528]: 348 84
+[finest]: [stdout:1529]: 349 128
+[finest]: [stdout:1530]: 350 72
+[finest]: [stdout:1531]: 351 121
+[finest]: [stdout:1532]: 352 110
+[finest]: [stdout:1533]: 353 124
+[finest]: [stdout:1534]: 354 74
+[finest]: [stdout:1535]: 355 128
+[finest]: [stdout:1536]: 356 100
+[finest]: [stdout:1537]: 357 72
+[finest]: [stdout:1538]: 358 119
+[finest]: [stdout:1539]: 359 94
+[finest]: [stdout:1540]: 360 100
+[finest]: [stdout:1541]: 361 88
+[finest]: [stdout:1542]: 362 86
+[finest]: [stdout:1543]: 363 93
+[finest]: [stdout:1544]: 364 88
+[finest]: [stdout:1545]: 365 112
+[finest]: [stdout:1546]: 366 87
+[finest]: [stdout:1547]: 367 104
+[finest]: [stdout:1548]: 368 106
+[finest]: [stdout:1549]: 369 108
+[finest]: [stdout:1550]: 370 86
+[finest]: [stdout:1551]: 371 114
+[finest]: [stdout:1552]: 372 107
+[finest]: [stdout:1553]: 373 123
+[finest]: [stdout:1554]: 374 104
+[finest]: [stdout:1555]: 375 129
+[finest]: [stdout:1556]: 376 76
+[finest]: [stdout:1557]: 377 105
+[finest]: [stdout:1558]: 378 105
+[finest]: [stdout:1559]: 379 109
+[finest]: [stdout:1560]: 380 71
+[finest]: [stdout:1561]: 381 121
+[finest]: [stdout:1562]: 382 79
+[finest]: [stdout:1563]: 383 79
+[finest]: [stdout:1564]: 384 84
+[finest]: [stdout:1565]: 385 109
+[finest]: [stdout:1566]: 386 84
+[finest]: [stdout:1567]: 387 128
+[finest]: [stdout:1568]: 388 72
+[finest]: [stdout:1569]: 389 121
+[finest]: [stdout:1570]: 390 110
+[finest]: [stdout:1571]: 391 124
+[finest]: [stdout:1572]: 392 74
+[finest]: [stdout:1573]: 393 128
+[finest]: [stdout:1574]: 394 100
+[finest]: [stdout:1575]: 395 72
+[finest]: [stdout:1576]: 396 119
+[finest]: [stdout:1577]: 397 94
+[finest]: [stdout:1578]: 398 100
+[finest]: [stdout:1579]: 399 88
+[finest]: [stdout:1580]: 400 86
+[finest]: [stdout:1581]: 401 93
+[finest]: [stdout:1582]: 402 88
+[finest]: [stdout:1583]: 403 112
+[finest]: [stdout:1584]: 404 87
+[finest]: [stdout:1585]: 405 104
+[finest]: [stdout:1586]: 406 106
+[finest]: [stdout:1587]: 407 108
+[finest]: [stdout:1588]: 408 86
+[finest]: [stdout:1589]: 409 114
+[finest]: [stdout:1590]: 410 107
+[finest]: [stdout:1591]: 411 123
+[finest]: [stdout:1592]: 412 104
+[finest]: [stdout:1593]: 413 119
+[finest]: [stdout:1594]: 414 108
+[finest]: [stdout:1595]: 415 101
+[finest]: [stdout:1596]: 416 106
+[finest]: [stdout:1597]: 417 92
+[finest]: [stdout:1598]: 418 121
+[finest]: [stdout:1599]: 419 76
+[finest]: [stdout:1600]: 420 92
+[finest]: [stdout:1601]: 421 105
+[finest]: [stdout:1602]: 422 96
+[finest]: [stdout:1603]: 423 84
+[finest]: [stdout:1604]: 424 73
+[finest]: [stdout:1605]: 425 112
+[finest]: [stdout:1606]: 426 108
+[finest]: [stdout:1607]: 427 99
+[finest]: [stdout:1608]: 428 125
+[finest]: [stdout:1609]: 429 114
+[finest]: [stdout:1610]: 430 89
+[finest]: [stdout:1611]: 431 111
+[finest]: [stdout:1612]: 432 109
+[finest]: [stdout:1613]: 433 89
+[finest]: [stdout:1614]: 434 101
+[finest]: [stdout:1615]: 435 126
+[finest]: [stdout:1616]: 436 98
+[finest]: [stdout:1617]: 437 98
+[finest]: [stdout:1618]: 438 71
+[finest]: [stdout:1619]: 439 77
+[finest]: [stdout:1620]: 440 113
+[finest]: [stdout:1621]: 441 127
+[finest]: [stdout:1622]: 442 92
+[finest]: [stdout:1623]: 443 97
+[finest]: [stdout:1624]: 444 107
+[finest]: [stdout:1625]: 445 119
+[finest]: [stdout:1626]: 446 88
+[finest]: [stdout:1627]: 447 123
+[finest]: [stdout:1628]: 448 106
+[finest]: [stdout:1629]: 449 92
+[finest]: [stdout:1630]: 450 121
+[finest]: [stdout:1631]: 451 76
+[finest]: [stdout:1632]: 452 92
+[finest]: [stdout:1633]: 453 105
+[finest]: [stdout:1634]: 454 96
+[finest]: [stdout:1635]: 455 84
+[finest]: [stdout:1636]: 456 73
+[finest]: [stdout:1637]: 457 112
+[finest]: [stdout:1638]: 458 108
+[finest]: [stdout:1639]: 459 99
+[finest]: [stdout:1640]: 460 125
+[finest]: [stdout:1641]: 461 114
+[finest]: [stdout:1642]: 462 89
+[finest]: [stdout:1643]: 463 111
+[finest]: [stdout:1644]: 464 109
+[finest]: [stdout:1645]: 465 89
+[finest]: [stdout:1646]: 466 101
+[finest]: [stdout:1647]: 467 126
+[finest]: [stdout:1648]: 468 98
+[finest]: [stdout:1649]: 469 98
+[finest]: [stdout:1650]: 470 71
+[finest]: [stdout:1651]: 471 77
+[finest]: [stdout:1652]: 472 113
+[finest]: [stdout:1653]: 473 127
+[finest]: [stdout:1654]: 474 92
+[finest]: [stdout:1655]: 475 97
+[finest]: [stdout:1656]: 476 107
+[finest]: [stdout:1657]: 477 119
+[finest]: [stdout:1658]: 478 88
+[finest]: [stdout:1659]: 479 123
+[finest]: [stdout:1660]: 480 106
+[finest]: [stdout:1661]: 481 92
+[finest]: [stdout:1662]: 482 121
+[finest]: [stdout:1663]: 483 76
+[finest]: [stdout:1664]: 484 92
+[finest]: [stdout:1665]: 485 105
+[finest]: [stdout:1666]: 486 96
+[finest]: [stdout:1667]: 487 84
+[finest]: [stdout:1668]: 488 73
+[finest]: [stdout:1669]: 489 112
+[finest]: [stdout:1670]: 490 108
+[finest]: [stdout:1671]: 491 99
+[finest]: [stdout:1672]: 492 125
+[finest]: [stdout:1673]: 493 114
+[finest]: [stdout:1674]: 494 89
+[finest]: [stdout:1675]: 495 111
+[finest]: [stdout:1676]: 496 109
+[finest]: [stdout:1677]: 497 89
+[finest]: [stdout:1678]: 498 101
+[finest]: [stdout:1679]: 499 126
+[finest]: [stdout:1680]: 500 98
+[finest]: [stdout:1681]: 501 98
+[finest]: [stdout:1682]: 502 71
+[finest]: [stdout:1683]: 503 77
+[finest]: [stdout:1684]: 504 113
+[finest]: [stdout:1685]: 505 127
+[finest]: [stdout:1686]: 506 92
+[finest]: [stdout:1687]: 507 97
+[finest]: [stdout:1688]: 508 107
+[finest]: [stdout:1689]: 509 119
+[finest]: [stdout:1690]: 510 88
+[finest]: [stdout:1691]: 511 123
+[finest]: [stdout:1692]: 512 106
+[finest]: [stdout:1693]: 513 92
+[finest]: [stdout:1694]: 514 121
+[finest]: [stdout:1695]: 515 76
+[finest]: [stdout:1696]: 516 92
+[finest]: [stdout:1697]: 517 105
+[finest]: [stdout:1698]: 518 96
+[finest]: [stdout:1699]: 519 84
+[finest]: [stdout:1700]: 520 73
+[finest]: [stdout:1701]: 521 112
+[finest]: [stdout:1702]: 522 108
+[finest]: [stdout:1703]: 523 99
+[finest]: [stdout:1704]: 524 125
+[finest]: [stdout:1705]: 525 114
+[finest]: [stdout:1706]: 526 89
+[finest]: [stdout:1707]: 527 111
+[finest]: [stdout:1708]: 528 109
+[finest]: [stdout:1709]: 529 89
+[finest]: [stdout:1710]: 530 101
+[finest]: [stdout:1711]: 531 126
+[finest]: [stdout:1712]: 532 98
+[finest]: [stdout:1713]: 533 98
+[finest]: [stdout:1714]: 534 71
+[finest]: [stdout:1715]: 535 77
+[finest]: [stdout:1716]: 536 113
+[finest]: [stdout:1717]: 537 127
+[finest]: [stdout:1718]: 538 92
+[finest]: [stdout:1719]: 539 97
+[finest]: [stdout:1720]: 540 107
+[finest]: [stdout:1721]: 541 119
+[finest]: [stdout:1722]: 542 88
+[finest]: [stdout:1723]: 543 123
+[finest]: [stdout:1724]: 544 106
+[finest]: [stdout:1725]: 545 92
+[finest]: [stdout:1726]: 546 121
+[finest]: [stdout:1727]: 547 76
+[finest]: [stdout:1728]: 548 92
+[finest]: [stdout:1729]: 549 105
+[finest]: [stdout:1730]: 550 96
+[finest]: [stdout:1731]: 551 84
+[finest]: [stdout:1732]: 552 73
+[finest]: [stdout:1733]: 553 112
+[finest]: [stdout:1734]: 554 108
+[finest]: [stdout:1735]: 555 99
+[finest]: [stdout:1736]: 556 125
+[finest]: [stdout:1737]: 557 114
+[finest]: [stdout:1738]: 558 89
+[finest]: [stdout:1739]: 559 111
+[finest]: [stdout:1740]: 560 109
+[finest]: [stdout:1741]: 561 89
+[finest]: [stdout:1742]: 562 101
+[finest]: [stdout:1743]: 563 126
+[finest]: [stdout:1744]: 564 98
+[finest]: [stdout:1745]: 565 98
+[finest]: [stdout:1746]: 566 71
+[finest]: [stdout:1747]: 567 77
+[finest]: [stdout:1748]: 568 113
+[finest]: [stdout:1749]: 569 127
+[finest]: [stdout:1750]: 570 92
+[finest]: [stdout:1751]: 571 97
+[finest]: [stdout:1752]: 572 107
+[finest]: [stdout:1753]: 573 119
+[finest]: [stdout:1754]: 574 88
+[finest]: [stdout:1755]: 575 123
+[finest]: [stdout:1756]: 576 106
+[finest]: [stdout:1757]: 577 92
+[finest]: [stdout:1758]: 578 121
+[finest]: [stdout:1759]: 579 76
+[finest]: [stdout:1760]: 580 92
+[finest]: [stdout:1761]: 581 105
+[finest]: [stdout:1762]: 582 96
+[finest]: [stdout:1763]: 583 84
+[finest]: [stdout:1764]: 584 73
+[finest]: [stdout:1765]: 585 112
+[finest]: [stdout:1766]: 586 108
+[finest]: [stdout:1767]: 587 99
+[finest]: [stdout:1768]: 588 125
+[finest]: [stdout:1769]: 589 114
+[finest]: [stdout:1770]: 590 89
+[finest]: [stdout:1771]: 591 111
+[finest]: [stdout:1772]: 592 109
+[finest]: [stdout:1773]: 593 89
+[finest]: [stdout:1774]: 594 101
+[finest]: [stdout:1775]: 595 126
+[finest]: [stdout:1776]: 596 98
+[finest]: [stdout:1777]: 597 98
+[finest]: [stdout:1778]: 598 71
+[finest]: [stdout:1779]: 599 77
+[finest]: [stdout:1780]: 600 113
+[finest]: [stdout:1781]: 601 127
+[finest]: [stdout:1782]: 602 92
+[finest]: [stdout:1783]: 603 97
+[finest]: [stdout:1784]: 604 107
+[finest]: [stdout:1785]: 605 119
+[finest]: [stdout:1786]: 606 88
+[finest]: [stdout:1787]: 607 123
+[finest]: [stdout:1788]: 608 106
+[finest]: [stdout:1789]: 609 92
+[finest]: [stdout:1790]: 610 121
+[finest]: [stdout:1791]: 611 76
+[finest]: [stdout:1792]: 612 92
+[finest]: [stdout:1793]: 613 105
+[finest]: [stdout:1794]: 614 96
+[finest]: [stdout:1795]: 615 84
+[finest]: [stdout:1796]: 616 73
+[finest]: [stdout:1797]: 617 112
+[finest]: [stdout:1798]: 618 108
+[finest]: [stdout:1799]: 619 99
+[finest]: [stdout:1800]: 620 125
+[finest]: [stdout:1801]: 621 114
+[finest]: [stdout:1802]: 622 89
+[finest]: [stdout:1803]: 623 111
+[finest]: [stdout:1804]: 624 109
+[finest]: [stdout:1805]: 625 89
+[finest]: [stdout:1806]: 626 101
+[finest]: [stdout:1807]: 627 126
+[finest]: [stdout:1808]: 628 98
+[finest]: [stdout:1809]: 629 98
+[finest]: [stdout:1810]: 630 71
+[finest]: [stdout:1811]: 631 77
+[finest]: [stdout:1812]: 632 113
+[finest]: [stdout:1813]: 633 127
+[finest]: [stdout:1814]: 634 92
+[finest]: [stdout:1815]: 635 97
+[finest]: [stdout:1816]: 636 107
+[finest]: [stdout:1817]: 637 119
+[finest]: [stdout:1818]: 638 88
+[finest]: [stdout:1819]: 639 123
+[finest]: [stdout:1820]: Median:104
+[finest]: [stdout:1821]: Average:100
+[finest]: [stdout:1822]: 
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 1.
+[finest]: [stdout:1]: 2c2
+[finest]: [stdout:2]: < Size:529
+[finest]: [stdout:3]: ---
+[finest]: [stdout:4]: > Size:555
+[finest]: [stdout:5]: 7c7
+[finest]: [stdout:6]: < Size:560
+[finest]: [stdout:7]: ---
+[finest]: [stdout:8]: > Size:596
+[finest]: [stdout:9]: 12c12
+[finest]: [stdout:10]: < Size:602
+[finest]: [stdout:11]: ---
+[finest]: [stdout:12]: > Size:640
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 139.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 24958/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 14238/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "TRICKY_TEST.ww"...
+[finer]: Running command [./wearable_server 11235 11149] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 11235 11149 TRICKY_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[finest]: [stdout:1]: Failed to deliver messages in time!
+[finest]: [stdout:2]: Receieved:Results for heart_beat:
+[finest]: [stdout:3]: Size:10
+[finest]: [stdout:4]: Median:126
+[finest]: [stdout:5]: Average:153
+[finest]: [stdout:6]: 
+[finest]: [stdout:7]: Results for blood_sugar:
+[finest]: [stdout:8]: Size:3
+[finest]: [stdout:9]: Median:104
+[finest]: [stdout:10]: Average:114
+[finest]: [stdout:11]: 
+[finest]: [stdout:12]: Results for body_temp:
+[finest]: [stdout:13]: Size:2
+[finest]: [stdout:14]: Median:124
+[finest]: [stdout:15]: Average:124
+[finest]: [stdout:16]: 
+[finest]: [stdout:17]: 
+[finest]: [stdout:18]: Receieved:Results for heart_beat:
+[finest]: [stdout:19]: Size:10
+[finest]: [stdout:20]: Median:126
+[finest]: [stdout:21]: Average:153
+[finest]: [stdout:22]: 
+[finest]: [stdout:23]: Results for blood_sugar:
+[finest]: [stdout:24]: Size:3
+[finest]: [stdout:25]: Median:104
+[finest]: [stdout:26]: Average:114
+[finest]: [stdout:27]: 
+[finest]: [stdout:28]: Results for body_temp:
+[finest]: [stdout:29]: Size:2
+[finest]: [stdout:30]: Median:124
+[finest]: [stdout:31]: Average:124
+[finest]: [stdout:32]: 
+[finest]: [stdout:33]: 
+[finest]: [stdout:34]: Receieved:Results for heart_beat:
+[finest]: [stdout:35]: Size:10
+[finest]: [stdout:36]: Median:126
+[finest]: [stdout:37]: Average:153
+[finest]: [stdout:38]: 
+[finest]: [stdout:39]: Results for blood_sugar:
+[finest]: [stdout:40]: Size:4
+[finest]: [stdout:41]: Median:104
+[finest]: [stdout:42]: Average:111
+[finest]: [stdout:43]: 
+[finest]: [stdout:44]: Results for body_temp:
+[finest]: [stdout:45]: Size:3
+[finest]: [stdout:46]: Median:104
+[finest]: [stdout:47]: Average:117
+[finest]: [stdout:48]: 
+[finest]: [stdout:49]: 
+[finest]: [stdout:50]: Receieved:Results for heart_beat:
+[finest]: [stdout:51]: Size:11
+[finest]: [stdout:52]: Median:120
+[finest]: [stdout:53]: Average:149
+[finest]: [stdout:54]: 
+[finest]: [stdout:55]: Results for blood_sugar:
+[finest]: [stdout:56]: Size:4
+[finest]: [stdout:57]: Median:104
+[finest]: [stdout:58]: Average:111
+[finest]: [stdout:59]: 
+[finest]: [stdout:60]: Results for body_temp:
+[finest]: [stdout:61]: Size:7
+[finest]: [stdout:62]: Median:111
+[finest]: [stdout:63]: Average:112
+[finest]: [stdout:64]: 
+[finest]: [stdout:65]: 
+[finest]: [stdout:66]: Results for heart_beat:
+[finest]: [stdout:67]: Size:10
+[finest]: [stdout:68]: 0 100
+[finest]: [stdout:69]: 1 303
+[finest]: [stdout:70]: 2 300
+[finest]: [stdout:71]: 3 133
+[finest]: [stdout:72]: 4 100
+[finest]: [stdout:73]: 5 143
+[finest]: [stdout:74]: 6 140
+[finest]: [stdout:75]: 7 120
+[finest]: [stdout:76]: 8 100
+[finest]: [stdout:77]: 9 100
+[finest]: [stdout:78]: Median:126
+[finest]: [stdout:79]: Average:153
+[finest]: [stdout:80]: 
+[finest]: [stdout:81]: Results for blood_sugar:
+[finest]: [stdout:82]: Size:3
+[finest]: [stdout:83]: 0 104
+[finest]: [stdout:84]: 1 134
+[finest]: [stdout:85]: 2 104
+[finest]: [stdout:86]: Median:104
+[finest]: [stdout:87]: Average:114
+[finest]: [stdout:88]: 
+[finest]: [stdout:89]: Results for body_temp:
+[finest]: [stdout:90]: Size:2
+[finest]: [stdout:91]: 0 144
+[finest]: [stdout:92]: 1 104
+[finest]: [stdout:93]: Median:124
+[finest]: [stdout:94]: Average:124
+[finest]: [stdout:95]: 
+[finest]: [stdout:96]: Results for heart_beat:
+[finest]: [stdout:97]: Size:10
+[finest]: [stdout:98]: 0 100
+[finest]: [stdout:99]: 1 303
+[finest]: [stdout:100]: 2 300
+[finest]: [stdout:101]: 3 133
+[finest]: [stdout:102]: 4 100
+[finest]: [stdout:103]: 5 143
+[finest]: [stdout:104]: 6 140
+[finest]: [stdout:105]: 7 120
+[finest]: [stdout:106]: 8 100
+[finest]: [stdout:107]: 9 100
+[finest]: [stdout:108]: Median:126
+[finest]: [stdout:109]: Average:153
+[finest]: [stdout:110]: 
+[finest]: [stdout:111]: Results for blood_sugar:
+[finest]: [stdout:112]: Size:3
+[finest]: [stdout:113]: 0 104
+[finest]: [stdout:114]: 1 134
+[finest]: [stdout:115]: 2 104
+[finest]: [stdout:116]: Median:104
+[finest]: [stdout:117]: Average:114
+[finest]: [stdout:118]: 
+[finest]: [stdout:119]: Results for body_temp:
+[finest]: [stdout:120]: Size:2
+[finest]: [stdout:121]: 0 144
+[finest]: [stdout:122]: 1 104
+[finest]: [stdout:123]: Median:124
+[finest]: [stdout:124]: Average:124
+[finest]: [stdout:125]: 
+[finest]: [stdout:126]: Results for heart_beat:
+[finest]: [stdout:127]: Size:10
+[finest]: [stdout:128]: 0 100
+[finest]: [stdout:129]: 1 303
+[finest]: [stdout:130]: 2 300
+[finest]: [stdout:131]: 3 133
+[finest]: [stdout:132]: 4 100
+[finest]: [stdout:133]: 5 143
+[finest]: [stdout:134]: 6 140
+[finest]: [stdout:135]: 7 120
+[finest]: [stdout:136]: 8 100
+[finest]: [stdout:137]: 9 100
+[finest]: [stdout:138]: Median:126
+[finest]: [stdout:139]: Average:153
+[finest]: [stdout:140]: 
+[finest]: [stdout:141]: Results for blood_sugar:
+[finest]: [stdout:142]: Size:4
+[finest]: [stdout:143]: 0 104
+[finest]: [stdout:144]: 1 104
+[finest]: [stdout:145]: 2 134
+[finest]: [stdout:146]: 3 104
+[finest]: [stdout:147]: Median:104
+[finest]: [stdout:148]: Average:111
+[finest]: [stdout:149]: 
+[finest]: [stdout:150]: Results for body_temp:
+[finest]: [stdout:151]: Size:3
+[finest]: [stdout:152]: 0 104
+[finest]: [stdout:153]: 1 144
+[finest]: [stdout:154]: 2 104
+[finest]: [stdout:155]: Median:104
+[finest]: [stdout:156]: Average:117
+[finest]: [stdout:157]: 
+[finest]: [stdout:158]: Results for heart_beat:
+[finest]: [stdout:159]: Size:11
+[finest]: [stdout:160]: 0 100
+[finest]: [stdout:161]: 1 100
+[finest]: [stdout:162]: 2 303
+[finest]: [stdout:163]: 3 300
+[finest]: [stdout:164]: 4 133
+[finest]: [stdout:165]: 5 100
+[finest]: [stdout:166]: 6 143
+[finest]: [stdout:167]: 7 140
+[finest]: [stdout:168]: 8 120
+[finest]: [stdout:169]: 9 100
+[finest]: [stdout:170]: 10 100
+[finest]: [stdout:171]: Median:120
+[finest]: [stdout:172]: Average:149
+[finest]: [stdout:173]: 
+[finest]: [stdout:174]: Results for blood_sugar:
+[finest]: [stdout:175]: Size:4
+[finest]: [stdout:176]: 0 104
+[finest]: [stdout:177]: 1 104
+[finest]: [stdout:178]: 2 134
+[finest]: [stdout:179]: 3 104
+[finest]: [stdout:180]: Median:104
+[finest]: [stdout:181]: Average:111
+[finest]: [stdout:182]: 
+[finest]: [stdout:183]: Results for body_temp:
+[finest]: [stdout:184]: Size:7
+[finest]: [stdout:185]: 0 111
+[finest]: [stdout:186]: 1 111
+[finest]: [stdout:187]: 2 104
+[finest]: [stdout:188]: 3 111
+[finest]: [stdout:189]: 4 104
+[finest]: [stdout:190]: 5 144
+[finest]: [stdout:191]: 6 104
+[finest]: [stdout:192]: Median:111
+[finest]: [stdout:193]: Average:112
+[finest]: [stdout:194]: 
+[finest]: [stderr:1]: POSSIBLY BAD TEST CASE! THE LATEST WEARABLE CONNECTION IS AFTER (OR EQUAL TO)                         THE LAUNCH OF THE FIRST STATS REQUEST. THIS MAY CAUSE INDETERMINANT BEHAVIOR
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [ls -s _error_report.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _error_report.rp
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 11235/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 11149/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "STRESS_TEST.ww"...
+[finer]: Running command [./wearable_server 24768 24702] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 24768 24702 STRESS_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[warning]: Output [stdout] exceeds 2,000 lines. Will not add to log.
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [ls -s _error_report.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 4 _error_report.rp
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 24768/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 24702/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "SIGINT"...
+[finer]: Running command [./wearable_server 17365 10193] with a timeout of 20000ms.
+[finer]: Running command [./wearable_sim 17365 10193 ONE_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 0.
+[finest]: [stdout:1]: Receieved:Results for heart_beat:
+[finest]: [stdout:2]: Size:1
+[finest]: [stdout:3]: Median:100
+[finest]: [stdout:4]: Average:100
+[finest]: [stdout:5]: 
+[finest]: [stdout:6]: Results for blood_sugar:
+[finest]: [stdout:7]: Size:1
+[finest]: [stdout:8]: Median:104
+[finest]: [stdout:9]: Average:104
+[finest]: [stdout:10]: 
+[finest]: [stdout:11]: Results for body_temp:
+[finest]: [stdout:12]: Size:1
+[finest]: [stdout:13]: Median:104
+[finest]: [stdout:14]: Average:104
+[finest]: [stdout:15]: 
+[finest]: [stdout:16]: 
+[finest]: [stdout:17]: Results for heart_beat:
+[finest]: [stdout:18]: Size:1
+[finest]: [stdout:19]: 0 100
+[finest]: [stdout:20]: Median:100
+[finest]: [stdout:21]: Average:100
+[finest]: [stdout:22]: 
+[finest]: [stdout:23]: Results for blood_sugar:
+[finest]: [stdout:24]: Size:1
+[finest]: [stdout:25]: 0 104
+[finest]: [stdout:26]: Median:104
+[finest]: [stdout:27]: Average:104
+[finest]: [stdout:28]: 
+[finest]: [stdout:29]: Results for body_temp:
+[finest]: [stdout:30]: Size:1
+[finest]: [stdout:31]: 0 104
+[finest]: [stdout:32]: Median:104
+[finest]: [stdout:33]: Average:104
+[finest]: [stdout:34]: 
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 0.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [ps -a] with a timeout of 1000ms.
+[finer]: Completed execution of "ps" with exit code = 1.
+[finest]: [stdout:1]:   PID TTY          TIME CMD
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 17365/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 10193/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching memory grader code for "MP6"...
+[fine]: Launching memory grader code for "MP6"...
+[finer]: Running command [make clean] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: rm -f *.o *.so *.rp wearable_sim wearable_server
+[fine]: The assignment-specific grade() method completed successfully.
+[info]: The submission in "/srv/local/cs241grader/release/fa14-dr//weishi3" for assignment "mp6" has finished grading. Running final tasks...

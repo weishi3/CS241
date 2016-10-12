@@ -1,0 +1,181 @@
+== CS 241 Autograder Note: ==
+This autograder is a preliminary assessment of your program's correctness. Your
+grade may change UP OR DOWN based on the CORRECTNESS OF YOUR PROGRAM. We make every effort to ensure
+that our autograder is 'smart' enough to not count off for simple things like grammar but, in doing so,
+we may inadvertently allow for incorrect code to be counted as correct. If we have to change our script
+to better reflect the CORRECTNESS OF YOUR PROGRAM, we will run the script on EVERY PROGRAM and update
+EVERY AUTOGRADER OUTPUT to ensure fairness to all students. Thanks for understanding! - CS 241 Staff
+
+(Please note, this autograder does not reflect a late submission penalty. This will be applied on Compass.)
+
+
+=== MP6 Autograder Summary ===
+Program Execution Score (90% weight): 5.0/30.0 (16.666666%)
+Program Heap Freed (5% weight): PASSED (100%)
+Correct Memory Usage (5% weight): PASSED (100%)
+
+
+=== MP6 Scoring Breakdown ===
+--- Details for "MP6" ---
+Total "MP6" Sub-Score: 5.0
+	... Details for "MP6", "ONE_WEARABLE_TEST.ww"...
+	Total "MP6", "ONE_WEARABLE_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "TWO_WEARABLE_TEST.ww"...
+	Total "MP6", "TWO_WEARABLE_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "SYNCHRONIZED_TEST.ww"...
+	Total "MP6", "SYNCHRONIZED_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "TRICKY_TEST.ww"...
+	Total "MP6", "TRICKY_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "STRESS_TEST.ww"...
+	Total "MP6", "STRESS_TEST.ww" Sub-Score: 0.0
+		Failed
+	... Details for "MP6", "SIGINT"...
+	Total "MP6", "SIGINT" Sub-Score: 5.0
+		Passed
+
+
+
+
+=== MP6 Raw Autograder Log ===
+[config]: Initializing the AssignmentGrader class "mp6"...
+[config]: Initializing the SegmentGrader class "mp6_1". Loading...
+[config]: Assignment initalization complete!
+[info]: The submission in "/srv/local/cs241grader/release/fa14-dr//weishi3" for assignment "mp6" is ready to be graded. Running grading tasks...
+[info]: Beginning to grade assignment "MP6"...
+[fine]: Launching assignment-specific code for "MP6", "MP6"...
+[finer]: Running command [make] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: gcc -o wearable.o wearable.c -c  -lpthread
+[finest]: [stdout:2]: gcc -o queue.o queue.c -c 
+[finest]: [stdout:3]: gcc wearable.o queue.o wearable_sim.c -g -O2 -W -Wall -lpthread -o wearable_sim
+[finest]: [stdout:4]: gcc wearable_server.c queue.o -g -O2 -W -Wall -lpthread -o wearable_server
+[finest]: [stderr:1]: wearable_sim.c: In function âalarm_wakeupâ:
+[finest]: [stderr:2]: wearable_sim.c:176: warning: unused parameter âiâ
+[finest]: [stderr:3]: wearable_server.c: In function âextract_keyâ:
+[finest]: [stderr:4]: wearable_server.c:81: warning: unknown conversion type character â:â in format
+[finest]: [stderr:5]: wearable_server.c: In function âuser_request_threadâ:
+[finest]: [stderr:6]: wearable_server.c:100: warning: unused variable âretâ
+[finest]: [stderr:7]: wearable_server.c:100: warning: unused variable âiâ
+[finest]: [stderr:8]: wearable_server.c: In function âopen_server_socketâ:
+[finest]: [stderr:9]: wearable_server.c:114: warning: unused parameter âportâ
+[finest]: [stderr:10]: wearable_server.c: In function âsignal_receivedâ:
+[finest]: [stderr:11]: wearable_server.c:120: warning: unused parameter âsigâ
+[fine]: Launching segment-specific code for "MP6", "MP6", "MP6"...
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "ONE_WEARABLE_TEST.ww"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 ONE_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "TWO_WEARABLE_TEST.ww"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 TWO_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "SYNCHRONIZED_TEST.ww"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 SYNCHRONIZED_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "TRICKY_TEST.ww"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 TRICKY_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finest]: [stderr:1]: POSSIBLY BAD TEST CASE! THE LATEST WEARABLE CONNECTION IS AFTER (OR EQUAL TO)                         THE LAUNCH OF THE FIRST STATS REQUEST. THIS MAY CAUSE INDETERMINANT BEHAVIOR
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "STRESS_TEST.ww"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 STRESS_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finer]: Running command [ls -s _received.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "ls" with exit code = 0.
+[finest]: [stdout:1]: 0 _received.rp
+[finer]: Running command [diff _received.rp _expected.rp] with a timeout of 1000ms.
+[finer]: Completed execution of "diff" with exit code = 0.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching element-specific code for "MP6", "MP6", "MP6", "SIGINT"...
+[finer]: Running command [./wearable_server 9998 9999] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_server" with exit code = 0.
+[finer]: Running command [./wearable_sim 9998 9999 ONE_WEARABLE_TEST.ww] with a timeout of 20000ms.
+[finer]: Completed execution of "./wearable_sim" with exit code = 139.
+[finer]: Running command [pkill -INT -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [ps -a] with a timeout of 1000ms.
+[finer]: Completed execution of "ps" with exit code = 1.
+[finest]: [stdout:1]:   PID TTY          TIME CMD
+[finer]: Running command [pkill -9 -x wearable_server] with a timeout of 1000ms.
+[finer]: Completed execution of "pkill" with exit code = 1.
+[finer]: Running command [fuser 9998/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[finer]: Running command [fuser 9999/tcp -k] with a timeout of 1000ms.
+[finer]: Completed execution of "fuser" with exit code = 1.
+[fine]: Launching memory grader code for "MP6"...
+[fine]: Launching memory grader code for "MP6"...
+[finer]: Running command [make clean] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: rm -f *.o *.so *.rp wearable_sim wearable_server
+[fine]: The assignment-specific grade() method completed successfully.
+[info]: The submission in "/srv/local/cs241grader/release/fa14-dr//weishi3" for assignment "mp6" has finished grading. Running final tasks...
